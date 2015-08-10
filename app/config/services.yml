@@ -9,3 +9,10 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
     markdown:
         class: AppBundle\Utils\Markdown
+   
+    app.twig.app_extension:
+        class:    AppBundle\Twig\AppExtension
+        arguments: ["@markdown"]
+        public:   false
+        tags:
+        - { name: twig.extension }
