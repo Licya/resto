@@ -1,0 +1,31 @@
+admin_contact_webmaster:
+    resource: "@AdminContactWebmasterBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_product:
+    resource: "@AdminProductBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_loggin:
+    resource: "@AdminLogginBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_partner:
+    resource: "@AdminPartnerBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_news:
+    resource: "@AdminNewsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_daily_menu:
+    resource: "@AdminDailyMenuBundle/Resources/config/routing.yml"
+    prefix:   /
+
+admin_category:
+    resource: "@AdminCategoryBundle/Resources/config/routing.yml"
+    prefix:   /category
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

@@ -1,0 +1,3 @@
+admin_daily_menu_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AdminDailyMenuBundle:Default:index }

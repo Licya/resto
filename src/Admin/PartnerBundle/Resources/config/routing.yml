@@ -1,0 +1,3 @@
+admin_partner_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AdminPartnerBundle:Default:index }

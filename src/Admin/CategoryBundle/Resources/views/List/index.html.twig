@@ -1,0 +1,19 @@
+{# src/Admin/CategoryBundle/views/List/index.html.twig#}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bienvenue sur ma première page avec OpenClassrooms !</title>
+    </head>
+    <body>
+        <h1>Hello {{ nom }} !</h1>
+        <a href='{{ path('admin_category_detail', {'id': list_id})}}'> 
+            Lien vers la categori d'id {{list_id}}
+        </a>
+        <p>
+            Le Hello {{nom}} est un grand classique en programmation.
+            Il signifie énormément, car cela veut dire que vous avez
+            réussi à exécuter le programme pour accomplir une tâche simple :
+            afficher ce hello world !
+        </p>
+    </body>
+</html>
