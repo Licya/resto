@@ -1,3 +1,0 @@
-admin_contact_webmaster_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminContactWebmasterBundle:Default:index }
