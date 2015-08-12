@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-quiv="Content-Type" content=" text/html; charset=UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Test Application{% endblock %}</title>
+        {% block menta %}
+            <meta http-quiv="Content-Type" content=" text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% endblock %}
+        <title>{% block title %}Index Category{% endblock %}</title>
         {% block stylesheets %}
             <link href="{{ asset('/css/main.css')}}" type="text/css" rel="stylesheet"/>
             <link href="{{ asset('/css/skeleton.css')}}" type="text/css" rel="stylesheet"/>
@@ -12,25 +14,55 @@
         {% endblock %}
     </head>
     <body>
+        {% block header %}
+            <div id="header">
+                <div class="container">
+                    <div class="row">
+                        <div class="four columns" id="first_column_header">
+                            <a  id="a_nav" href=""><h2>Hola!</h2></a>
+                        </div>
+                        <div class="four columns" id="center_align">
+                            <a href="">&nbsp;</a>
+                        </div>
+                        <div class="four columns" id="center_align">
+                            <a id="a_header" href=""><h5>Deconnexion</h5></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+
         {% block javascript %}
             <script src="{{ asset('/js/main.js')}}" type="text/javascript"></script>
         {% endblock %}
-        <div id="sidbar">
-            {% block sidebar %}
-                <ul>
-                    <li><a href="/resto/web/app_dev.php/">home</a></li>
-                    <li><a href="/resto/web/app_dev.php/category/">Catégories</a></li>
-                    <li><a href=""></a>Menu du Jour</li>
-                    <li><a href=""></a>News</li>
-                    <li><a href=""></a>Partenaires</li>
-                    <li><a href=""></a>Produits</li>
-                    <li><a href=""></a>Contact Webmaster</li>
-                </ul>
-            {% endblock %}
+        {% block content %}
+            <div class="container">
+                <div class="row">
+                    <div class="four columns">
+                        <div id="sidbar">
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Home</a> 
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/category">Category</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Menu du Jour</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">News</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Partenaires</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Produits</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Contact Webmaster</a>
+                        </div>
+                    </div>
+                    <div class="eight columns">
+                        <div>
+                            <h1>{% block pagetitle %} {% endblock %}</h1>
+                        {% block bodyContent %}{% endblock %} 
+                        <div id="center_align">{% block addBtn %}{% endblock %}</div>
+                    </div> 
+                </div>
+            </div>
         </div>
-        <div id="content">
-            {% block pagetitle %} {% endblock %}
-        {% block body %}{% endblock %} 
-    </div>  
+    {% endblock %}
+    {% block footerContent %}
+        <div id="footer">
+            Designed by &copy;Koko 
+        </div>
+    {% endblock %}
 </body>
 </html>
