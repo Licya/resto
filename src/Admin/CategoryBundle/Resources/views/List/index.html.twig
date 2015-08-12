@@ -1,48 +1,53 @@
 {# src/Admin/CategoryBundle/views/List/index.html.twig#}
 {% extends '::base.html.twig' %}
+{% set itemName = 'Catégories' %}
 {% block title %} Liste des Catégories {% endblock %}
-{% block pagetitle %} Liste de Catégories {% endblock %}
-{% block body %} 
-    <table border='1' style='width:100%'>
-        <tr>
-            <th>Nom</th>
-                {#<th>Description</th>#}
-            <th>Publiée</th>
-            <th>Detail</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
-        </tr>
-        {% for Category in category%}
+{% block pagetitle %}Liste des Catégories{% endblock %}
+{% block bodyContent %} 
+    <table class="u-full-width">
+        <thead>
             <tr>
-                <td>{{Category.name}}</td>
-                {#<td>{{Category.description}}</td>#}
-                <td>{%if Category.enable == 1%}
-                    oui
-                {%else%}
-                    non
-                    {%endif%}
-                    </td>
-                    <td>
-                        <a href='{{ path('admin_category_detail', {'id': Category.id})}}'> 
-                            Voir détail
-                        </a>
-                    </td>
-                    <td>
-                        <a href="{{ path('admin_category_edit',
+                <th id="center_align">Nom</th>
+                    {#<th>Description</th>#}
+                <th id="center_align">Publiée</th>
+                <th id="center_align">Detail</th>
+                <th id="center_align">Modifier</th>
+                <th id="center_align">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Category in category%}
+                <tr>
+                    <td id="center_align">{{Category.name}}</td>
+                    {#<td>{{Category.description}}</td>#}
+                    <td id="center_align">{%if Category.enable == 1%}
+                        oui
+                    {%else%}
+                        non
+                        {%endif%}
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_detail" href='{{ path('admin_category_detail', {'id': Category.id})}}'> 
+                                Voir détail
+                            </a>
+                        </td>
+                        <td id="center_align">
+                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_category_edit',
                                             {'id' : Category.id},
                                             {'name': Category.name},
                                             {'description': Category.description},
                                             {'enable':Category.enable},
                                             {'sort':Category.sort}
                            )}}">Modifier</a>
-                    </td>
-                    <td>
-                        {#mettre une condition qui si la catégorie possède un produit
-                        un message est envoyé pour signalé qu'elle ne peut pas être supprimée#}
-                        <a href="{{ path('admin_category_delete',{'id' : Category.id})}}">Supprimer</a>
-                    </td>
-                </tr><br>
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_delete" href="{{ path('admin_category_delete',{'id' : Category.id})}}">Supprimer</a>
+                        </td>
+                    </tr>
+                </tbody>
                 {% endfor %}
                 </table>
-                <p>Ajouter une Catégorie<a href="{{ path('admin_category_add')}}">Ajouter</a></p>
                 {% endblock %}
+                    {% block addBtn %} 
+                        <a class="button" id="btn_add" href="{{ path('admin_category_add')}}">Ajouter une {{itemName}} </a>
+                    {% endblock %}

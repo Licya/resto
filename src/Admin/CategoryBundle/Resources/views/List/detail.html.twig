@@ -1,22 +1,16 @@
 {# src/Admin/CategoryBundle/Resources/views/List/view.html.twig#}
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Affichage du détail d'une Catégorie</title>
-    </head>
-    <body>
-        <h1>Affichage du détail d'une Catégorie</h1>
-        
-        <h2>La catégorie dont l'id est {{id}}:</h2>
-        <b>Nom: </b>{{name}}<br>
-        <b>Description: </b><em>{{description}}</em><br>
-        <b>Actif: </b>
-        {%if enable == 1%}
-            oui
-        {%else%}
-            non
-        {%endif%}<br>
-        <b>Tri: {{sort}}</b>
-    </body>
-</html>
+{% extends '::base.html.twig' %}
+{% set itemName = 'Catégories' %}
+{% block pagetitle %}Affichage du détail d'une Catégorie{% endblock %}
+{% block bodyContent %}
+    <h2>La catégorie: {{name}}</h2>
+    <b>Nom: </b>{{name}}<br>
+    <b>Description: </b><em>{{description}}</em><br>
+    <b>Actif: </b>
+    {%if enable == 1%}
+        oui
+    {%else%}
+        non
+    {%endif%}<br>
+    <b>Tri: {{sort}}</b>
+{% endblock %}

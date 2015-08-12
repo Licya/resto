@@ -1,15 +1,10 @@
 {# src/Admin/CategoryBundle/Resources/views/List/delete.html.twig#}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Affichage du détail d'une Catégorie</title>
-    </head>
-    <body>
-        <h1>Effacement d'une Catégorie</h1>
-        
-        <h2>La catégorie dont l'id est {{id}}:</h2>
-        <b>Nom : </b>{{name}}<br>
-        <b>Description: </b><em>{{description}}</em><br>
-        <p>a été correctement effacée</p>
-    </body>
-</html>
+{% extends '::base.html.twig' %}
+{% set itemName = 'Catégories' %}
+{% block pagetitle %}Effacement d'une Catégorie{% endblock %}
+{% block bodyContent %}        
+    <h2>La Catégorie: {{name}}</h2>
+    <b>Nom : </b>{{name}}<br>
+    <b>Description: </b><em>{{description}}</em><br>
+    <p>a été correctement effacée</p>
+{% endblock %}

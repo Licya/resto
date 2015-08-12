@@ -1,11 +1,5 @@
 {# src/Admin/CategoryBundle/Resources/views/List/add.html.twig#}
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Création d'une Catégorie</title>
-    </head>
-    <body>
-        <h1>Création d'une Catégorie</h1>
-      {{form(form)}}       
-    </body>
-</html>
+{% extends '::base.html.twig' %}
+{% set itemName = 'Catégories' %}
+{% block pagetitle %}Ajouter une catégorie Catégories{% endblock %}
+{% block bodyContent %}{{form(form)}}{% endblock %}
