@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new Admin\PartnerBundle\AdminPartnerBundle(),
             new Admin\LogginBundle\AdminLogginBundle(),
             new Admin\ProductBundle\AdminProductBundle(),
+            new Admin\ContactBundle\AdminContactBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

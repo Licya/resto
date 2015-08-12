@@ -1,3 +1,7 @@
+admin_contact:
+    resource: "@AdminContactBundle/Resources/config/routing.yml"
+    prefix:   /
+
 admin_product:
     resource: "@AdminProductBundle/Resources/config/routing.yml"
     prefix:   /
@@ -25,3 +29,4 @@ admin_category:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+    

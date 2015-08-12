@@ -23,13 +23,12 @@ use AppBundle\Entity\Category;
 class ListController extends Controller
 {
 
-    public function indexAction($page)
+    public function indexAction()
     {
-        if ($page < 1) {
-            throw new NotFoundHttpException('Category"'.$page.'"inexistante.');
-        }
+        $category = $this->getDoctrine()
+                        ->getRepository('AppBundle:Category')->findAll();
 
-        return $this->render('AdminCategoryBundle:List:index.html.twig');
+        return $this->render('AdminCategoryBundle:List:index.html.twig', array('category' => $category,));
     }
 
     public function detailAction($id)
@@ -41,8 +40,7 @@ class ListController extends Controller
         $category = $em->getRepository('AppBundle:Category')->find($id);
 
         if (!$category) {
-//            throw $this->createNotFoundException(
-//                    'Aucune catégrory trouvée pour cet id : '.$id);
+
             $ErrorMessage = "Désolé, aucune catégrory n'a trouvée pour cet id.";
 
             return $this->render('AdminCategoryBundle:List:error.html.twig', array('ErrorMessage' => $ErrorMessage, 'id' => $id));
@@ -50,65 +48,112 @@ class ListController extends Controller
 
         $name = $category->getName();
         $description = $category->getDescription();
+        $enable = $category->getEnable();
+        $sort = $category->getSort();
 
-        return $this->render('AdminCategoryBundle:List:detail.html.twig', array('name' => $name, 'id' => $id, 'description' => $description));
+        return $this->render('AdminCategoryBundle:List:detail.html.twig', array('name' => $name, 'id' => $id, 'description' => $description,
+            'enable'=>$enable, 'sort'=>$sort));
     }
 
-    public function addAction()
+    public function addAction(Request $request)
     {
-//        $em = $this->getDoctrine()->getManager();
-//        $category=$em->getRepository('AppBundle:Category');
-
         $category = new Category();
-        $category = setName('Koko');
-        $category = setDescription('La vie est Belle');
-        $category = setEnable('true');
+//        $category->setName('Banane');
+//        $category->setDescription('Banana split guillotine');
+        $category->setSort(1);
+        $form = $this->createFormBuilder($category)
+                ->add('name', 'text')
+                ->add('description', 'textarea')
+                ->add('enable', 'checkbox')
+                ->add('save', 'submit')
+                ->getForm();
 
-        $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:Category');
-        $em->persist($category);
-        $em->flush();
+        $form->handleRequest($request);
 
-        $id = $category->getId();
-        $name = $category->getName();
-        $description = $category->getDescription();
-        $message = 'A été créée.';
+        if ($form->isValid()) {
 
-        return $this->render('AdminCategoryBundle:list:add.html.twig', array('id' => $id, 'name' => $name, 'description' => $description, 'message' => $message));
-    }
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($category);
+            $em->flush();
 
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $category = $em->getRepository('AppBundle:Category')->find($id);
-
-        if (!$category) {
-            $ErrorMessage = "Désolé, aucune catégrory n'a trouvée pour cet id.";
-            return $this->render('AdminCategoryBundle:List:error.html.twig', array('ErrorMessage' => $ErrorMessage, 'id' => $id));
+            $request->getSession()->getFlashBag()->add('success', 'Categorie bien enregistrée.');
         }
-
-        $category->setName('Dessert');
-        $category->setDescription('Une douceur pour la vie');
-        $em->flush();
-
-        $name = $category->getName();
-        $description = $category->getDescription();
-
-        return $this->render('AdminCategoryBundle:List:edit.html.twig', array('name' => $name, 'description' => $description, 'id' => $id));
+        $id = $category->getId();
+        $category->setSort($id);
+        return $this->render('AdminCategoryBundle:List:add.html.twig', array('form' => $form->createView(),));
     }
 
-    public function delete($id)
+    public function editAction(Request $request, $id)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this
+                ->getDoctrine()
+                ->getManager();
         $category = $em->getRepository('AppBundle:Category')->find($id);
-
-        $id=$category->getId();
+        
         $name=$category->getName();
         $description=$category->getDescription();
+        $enable=$category->getEnable();
+        $sort=$category->getSort();
+
+        $category->setName($name);
+        $category->setDescription($description);
+        $category->setEnable($enable);
+        $category->setSort($sort);
         
+        $form = $this->createFormBuilder($category)
+                ->add('name', 'text')
+                ->add('description', 'textarea')
+                ->add('enable', 'checkbox')
+                ->add('sort', 'integer')
+                ->add('save', 'submit')
+                ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($category);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('success', 'Categorie a été modifiée.');
+        }
+
+        return $this->render('AdminCategoryBundle:List:edit.html.twig', array('form' => $form->createView(), 'id'=>$id,));
+    }
+
+//        $em = $this->getDoctrine()->getManager();
+//        $category = $em->getRepository('AppBundle:Category')->find($id);
+//
+//        if (!$category) {
+//            $ErrorMessage = "Désolé, aucune catégrory n'a trouvée pour cet id.";
+//            return $this->render('AdminCategoryBundle:List:error.html.twig', array('ErrorMessage' => $ErrorMessage, 'id' => $id));
+//        }
+//
+//        $category->setName('Dessert');
+//        $category->setDescription('Une douceur pour la vie');
+//        $em->flush();
+//
+//        $name = $category->getName();
+//        $description = $category->getDescription();
+//
+//        return $this->render('AdminCategoryBundle:List:edit.html.twig', array('name' => $name, 'description' => $description, 'id' => $id));
+
+    public function deleteAction($id)
+    {
+        $em = $this
+                ->getDoctrine()
+                ->getManager();
+        $category = $em->getRepository('AppBundle:Category')->find($id);
+
+//        $id = $category->getId();
+        $name = $category->getName();
+        $description = $category->getDescription();
+
         $em->remove($category);
         $em->flush();
-        
-        return $this->render('AdminCategoryBundle:List:delet.html.twig', array(
+
+        return $this->render('AdminCategoryBundle:List:delete.html.twig', array(
                     'id' => $id, 'name' => $name, 'description' => $description
         ));
     }

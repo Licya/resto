@@ -53,7 +53,7 @@ class Product
     /**
      * @var boolean
      *
-     * @ORM\Column(name="enable", type="boolean")
+     * @ORM\Column(name="enable", type="boolean", nullable=true)
      */
     private $enable;
 
