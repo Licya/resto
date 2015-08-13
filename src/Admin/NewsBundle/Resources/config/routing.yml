@@ -1,3 +1,25 @@
 admin_news_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminNewsBundle:Default:index }
+    path: /
+    defaults: { _controller: AdminNewsBundle:News:index }
+    
+admin_news_detail:
+    path: /detail/{id}
+    defaults: { _controller: AdminNewsBundle:News:detail }
+    requirements:
+        id: \d+
+
+admin_news_add:
+    path: /add
+    defaults: { _controller: AdminNewsBundle:News:add }
+    
+admin_news_edit:
+    path: /edit/{id}
+    defaults: { _controller: AdminNewsBundle:News:edit }
+    requirements:
+        id: \d+
+    
+admin_news_delete:
+    path: /delete{id}
+    defaults: { _controller: AdminNewsBundle:News:delete }
+    requirements: 
+        id: \d+

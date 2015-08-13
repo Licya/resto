@@ -1,0 +1,52 @@
+{# src/Admin/NewsBundle/views/News/index.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'News' %}
+{% block title %} Liste des {{itemName}} {% endblock %}
+{% block pagetitle %}Liste {{itemName}}{% endblock %}
+{% block bodyContent %} 
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th id="center_align">Titre</th>
+                <th id="center_align">Publiée</th>
+                <th id="center_align">Detail</th>
+                <th id="center_align">Modifier</th>
+                <th id="center_align">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for News in news %}
+                <tr>
+                    <td id="center_align">{{News.title}}</td>
+                    <td id="center_align">{%if News.enable == 1%}
+                        oui
+                    {%else%}
+                        non
+                        {%endif%}
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_detail" href='{{ path('admin_news_detail', {'id': News.id})}}'> 
+                                Voir détail
+                            </a>
+                        </td>
+                        <td id="center_align">
+                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_news_edit',
+                                            {'id' : News.id},
+                                            {'title': News.title},
+                                            {'subtitle': News.subtitle},
+                                            {'description': News.description},
+                                            {'enable':News.enable},
+                                            {'sort':News.sort}
+                           )}}">Modifier</a>
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_delete" href="{{ path('admin_news_delete',{'id' : News.id})}}">Supprimer</a>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+                </table>
+                {% endblock %}
+                    {% block addBtn %} 
+                        <a class="button" id="btn_add" href="{{ path('admin_news_add')}}">Ajouter une {{itemName}} </a>
+                    {% endblock %}

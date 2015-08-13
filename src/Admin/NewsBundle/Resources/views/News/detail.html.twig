@@ -1,0 +1,16 @@
+{# src/Admin/NewsBundle/Resources/views/News/view.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'News' %}
+{% block pagetitle %}Affichage du détail d'une News{% endblock %}
+{% block bodyContent %}
+    <h2>La News: {{title}}</h2>
+    <b>Sous-titre: </b>{{subtitle}}<br>
+    <b>Description: </b><em>{{description}}</em><br>
+    <b>Actif: </b>
+    {%if enable == 1%}
+        oui
+    {%else%}
+        non
+    {%endif%}<br>
+    <b>Tri: {{sort}}</b>
+{% endblock %}

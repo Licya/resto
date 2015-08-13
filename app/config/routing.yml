@@ -16,7 +16,7 @@ admin_partner:
 
 admin_news:
     resource: "@AdminNewsBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /news
 
 admin_daily_menu:
     resource: "@AdminDailyMenuBundle/Resources/config/routing.yml"
@@ -25,7 +25,7 @@ admin_daily_menu:
 admin_category:
     resource: "@AdminCategoryBundle/Resources/config/routing.yml"
     prefix:   /category
-
+   
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

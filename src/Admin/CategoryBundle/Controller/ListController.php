@@ -58,8 +58,6 @@ class ListController extends Controller
     public function addAction(Request $request)
     {
         $category = new Category();
-//        $category->setName('Banane');
-//        $category->setDescription('Banana split guillotine');
         $category->setSort(1);
         $form = $this->createFormBuilder($category)
                 ->add('name', 'text')
@@ -122,23 +120,6 @@ class ListController extends Controller
         return $this->render('AdminCategoryBundle:List:edit.html.twig', array('form' => $form->createView(), 'id'=>$id,));
     }
 
-//        $em = $this->getDoctrine()->getManager();
-//        $category = $em->getRepository('AppBundle:Category')->find($id);
-//
-//        if (!$category) {
-//            $ErrorMessage = "Désolé, aucune catégrory n'a trouvée pour cet id.";
-//            return $this->render('AdminCategoryBundle:List:error.html.twig', array('ErrorMessage' => $ErrorMessage, 'id' => $id));
-//        }
-//
-//        $category->setName('Dessert');
-//        $category->setDescription('Une douceur pour la vie');
-//        $em->flush();
-//
-//        $name = $category->getName();
-//        $description = $category->getDescription();
-//
-//        return $this->render('AdminCategoryBundle:List:edit.html.twig', array('name' => $name, 'description' => $description, 'id' => $id));
-
     public function deleteAction($id)
     {
         $em = $this
@@ -146,7 +127,6 @@ class ListController extends Controller
                 ->getManager();
         $category = $em->getRepository('AppBundle:Category')->find($id);
 
-//        $id = $category->getId();
         $name = $category->getName();
         $description = $category->getDescription();
 

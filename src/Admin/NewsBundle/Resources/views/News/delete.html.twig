@@ -1,0 +1,11 @@
+{# src/Admin/NewsBundle/Resources/views/News/delete.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'News' %}
+{% block pagetitle %}Effacement d'une News{% endblock %}
+{% block bodyContent %}        
+    <h2>La News: {{title}}</h2>
+    <b>Titre: </b>{{title}}<br>
+    <b>Sous-titre: </b>{{subtitle}}<br>
+    <b>Description: </b><em>{{description}}</em><br>
+    <p>a été correctement effacée</p>
+{% endblock %}
