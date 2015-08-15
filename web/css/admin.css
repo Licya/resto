@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 15 août 2015, 15:58:21
+    Created on : 12 août 2015, 16:39:17
     Author     : Licya
 */
 
@@ -33,7 +33,7 @@ and open the template in the editor.
 /* Links
 ––––––––––––––––––––––––––––––––––––––––––––––––––*/
 #first_column_header{
-    background-color: #012615;
+    background-color: #009966;
     text-align: center;
     font-style: italic;
 }
@@ -56,7 +56,7 @@ a{text-decoration: none;}
     color:white;
 }
 
-#a_nav:hover{color: #009966;}
+#a_nav:hover{color: #00cc99;}
 
 #a_header{
     text-decoration: none;
@@ -67,7 +67,7 @@ a{text-decoration: none;}
 #a_header:hover{ color: #009966; }
 
 #header{
-    background-color: #025928;
+    background-color: #00cc99;
     color:#ffffff;
 }
 
@@ -76,8 +76,8 @@ a{text-decoration: none;}
 }
 
 #footer{
-    background-color: white;
-    color: #bf2c2c;
+    background-color: black;
+    color: white;
     height: 100px;
 }
 

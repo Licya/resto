@@ -8,18 +8,16 @@
         <thead>
             <tr>
                 <th id="center_align">Nom</th>
-                    {#<th>Description</th>#}
                 <th id="center_align">Publiée</th>
                 <th id="center_align">Detail</th>
                 <th id="center_align">Modifier</th>
-                <th id="center_align">Supprimer</th>
+                {#<th id="center_align">Supprimer</th>#}
             </tr>
         </thead>
         <tbody>
             {% for Category in category%}
                 <tr>
                     <td id="center_align">{{Category.name}}</td>
-                    {#<td>{{Category.description}}</td>#}
                     <td id="center_align">{%if Category.enable == 1%}
                         oui
                     {%else%}
@@ -40,14 +38,14 @@
                                             {'sort':Category.sort}
                            )}}">Modifier</a>
                         </td>
-                        <td id="center_align">
+                        {#<td id="center_align">
                             <a class="button" id="btn_nav_delete" href="{{ path('admin_category_delete',{'id' : Category.id})}}">Supprimer</a>
-                        </td>
+                        </td>#}
                     </tr>
                 </tbody>
                 {% endfor %}
                 </table>
                 {% endblock %}
-                    {% block addBtn %} 
+                    {#{% block addBtn %} 
                         <a class="button" id="btn_add" href="{{ path('admin_category_add')}}">Ajouter une {{itemName}} </a>
-                    {% endblock %}
+                    {% endblock %}#}

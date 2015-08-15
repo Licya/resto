@@ -8,7 +8,7 @@
         {% endblock %}
         <title>{% block title %}Index Category{% endblock %}</title>
         {% block stylesheets %}
-            <link href="{{ asset('/css/main.css')}}" type="text/css" rel="stylesheet"/>
+            <link href="{{ asset('/css/admin.css')}}" type="text/css" rel="stylesheet"/>
             <link href="{{ asset('/css/skeleton.css')}}" type="text/css" rel="stylesheet"/>
             <link href="{{ asset('/css/normalize.css')}}" type="text/css" rel="stylesheet"/>
         {% endblock %}
@@ -41,12 +41,13 @@
                     <div class="four columns">
                         <div id="sidbar">
                             <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Home</a> 
-                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/category">Category</a>
-                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Menu du Jour</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/category">Categories</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/dailymenu">Menu du Jour</a>
                             <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/news">News</a>
-                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Partenaires</a>
-                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Produits</a>
-                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/">Contact Webmaster</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/partner">Partenaires</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/product">Produits</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/proposition">Propositions</a>
+                            <a class="button u-max-full-width" id="btn_nav" href="/resto/web/app_dev.php/contact">Contact Webmaster</a>
                         </div>
                     </div>
                     <div class="eight columns">

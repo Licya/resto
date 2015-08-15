@@ -1,0 +1,9 @@
+{# src/Admin/PropositionBundle/Resources/views/Proposition/delete.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Proposition' %}
+{% block pagetitle %}Effacement d'une {{itemName}}{% endblock %}
+{% block bodyContent %}        
+    <h2>La Proposition: {{title}}</h2>
+    <b> Titre : </b>{{title}}<br>
+    <p>a été correctement effacée</p>
+{% endblock %}

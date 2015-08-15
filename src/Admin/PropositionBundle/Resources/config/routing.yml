@@ -1,0 +1,26 @@
+admin_proposition_home:
+    path:     /
+    defaults: { _controller: AdminPropositionBundle:Proposition:index }
+    
+admin_proposition_detail:
+    path: /detail/{id}
+    defaults: { _controller: AdminPropositionBundle:Proposition:detail }
+    requirements:
+        id: \d+
+   
+admin_proposition_add:
+    path: /add
+    defaults: { _controller: AdminPropositionBundle:Proposition:add }
+    
+admin_proposition_edit:
+    path: /edit/{id}
+    defaults: { _controller: AdminPropositionBundle:Proposition:edit }
+    requirements:
+        id: \d+
+
+admin_proposition_delete:
+    path: /delete/{id}
+    defaults: { _controller: AdminPropositionBundle:Proposition:delete }
+    requirements:
+        id: \d+
+    

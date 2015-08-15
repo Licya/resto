@@ -1,0 +1,3 @@
+main_main_home:
+    path:     /
+    defaults: { _controller: MainMainBundle:Main:index }

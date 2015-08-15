@@ -1,3 +1,27 @@
-admin_partner_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminPartnerBundle:Default:index }
+admin_partner_home:
+    path:     /
+    defaults: { _controller: AdminPartnerBundle:Partner:index }
+
+admin_partner_detail:
+    path: /detail/{id}
+    defaults: { _controller: AdminPartnerBundle:Partner:detail }
+    requirements:
+        id: \d+
+ 
+admin_partner_add:
+    path: /add
+    defaults: { _controller: AdminPartnerBundle:Partner:add }
+    
+admin_partner_edit:
+    path: /edit/{id}
+    defaults: { _controller: AdminPartnerBundle:Partner:edit }
+    requirements:
+        id: \d+
+    
+admin_partner_delete:
+    path: /delete/{id}
+    defaults: { _controller: AdminPartnerBundle:Partner:delete }
+    requirements:
+        id: \d+
+  
+    

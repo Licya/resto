@@ -1,0 +1,51 @@
+{# src/Admin/PartnerBundle/views/Partner/index.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Partenaires' %}
+{% block title %} Liste des {{itemName}} {% endblock %}
+{% block pagetitle %}Liste des {{itemName}} {% endblock %}
+{% block bodyContent %} 
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th id="center_align">Nom</th>
+                <th id="center_align">Publiée</th>
+                <th id="center_align">Detail</th>
+                <th id="center_align">Modifier</th>
+                <th id="center_align">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Partner in partner %}
+                <tr>
+                    <td id="center_align">{{Partner.name}}</td>
+                    <td id="center_align">{%if Partner.enable == 1%}
+                        oui
+                    {%else%}
+                        non
+                        {%endif%}
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_detail" href='{{ path('admin_partner_detail', {'id': Partner.id})}}'> 
+                                Voir détail
+                            </a>
+                        </td>
+                        <td id="center_align">
+                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_partner_edit',
+                                            {'id' : Partner.id},
+                                            {'name': Partner.name},
+                                            {'websiteLink': Partner.websiteLink},
+                                            {'enable':Partner.enable},
+                                            {'sort':Partner.sort}
+                           )}}">Modifier</a>
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_delete" href="{{ path('admin_partner_delete',{'id' : Partner.id})}}">Supprimer</a>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+                </table>
+                {% endblock %}
+                    {% block addBtn %} 
+                        <a class="button" id="btn_add" href="{{ path('admin_partner_add')}}">Ajouter une {{itemName}} </a>
+                    {% endblock %}

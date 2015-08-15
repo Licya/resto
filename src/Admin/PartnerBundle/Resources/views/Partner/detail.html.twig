@@ -1,0 +1,16 @@
+{# src/Admin/PartnerBundle/Resources/views/Partner/view.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Partenaire' %}
+{% block pagetitle %}Affichage du détail d'un {{itemName}}{% endblock %}
+{% block bodyContent %}
+    <h2>Le Partenaire: {{name}}</h2>
+    <b>Nom: </b>{{name}}<br>
+    <b>Site Internet: </b><em>{{websiteLink}}</em><br>
+    <b>Actif: </b>
+    {%if enable == 1%}
+        oui
+    {%else%}
+        non
+    {%endif%}<br>
+    <b>Tri: {{sort}}</b>
+{% endblock %}

@@ -1,0 +1,10 @@
+{# src/Admin/PartnerBundle/Resources/views/Partner/delete.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Partenaire' %}
+{% block pagetitle %}Effacement d'un Partenaire{% endblock %}
+{% block bodyContent %}        
+    <h2>Le Partenaire : {{name}}</h2>
+    <b>Nom: </b>{{name}}<br>
+    <b>Site Internet: </b><em>{{websiteLink}}</em><br>
+    <p>a été correctement effacé</p>
+{% endblock %}

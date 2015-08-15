@@ -1,18 +1,26 @@
+main_main:
+    resource: "@MainMainBundle/Resources/config/routing.yml"
+    prefix:   /main
+
+admin_proposition:
+    resource: "@AdminPropositionBundle/Resources/config/routing.yml"
+    prefix:   /proposition
+
 admin_contact:
     resource: "@AdminContactBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /contact
 
 admin_product:
     resource: "@AdminProductBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /product
 
 admin_loggin:
     resource: "@AdminLogginBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /loggin
 
 admin_partner:
     resource: "@AdminPartnerBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /partner
 
 admin_news:
     resource: "@AdminNewsBundle/Resources/config/routing.yml"
@@ -20,7 +28,7 @@ admin_news:
 
 admin_daily_menu:
     resource: "@AdminDailyMenuBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /dailymenu
 
 admin_category:
     resource: "@AdminCategoryBundle/Resources/config/routing.yml"

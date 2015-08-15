@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\PartnerBundle\Controller;
+namespace Main\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction($name)
     {
-        return $this->render('AdminPartnerBundle:Default:index.html.twig', array('name' => $name));
+        return $this->render('MainMainBundle:Default:index.html.twig', array('name' => $name));
     }
 }

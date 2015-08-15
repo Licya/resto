@@ -1,0 +1,41 @@
+{# src/Admin/PropositionBundle/views/Proposition/index.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Proposition' %}
+{% block title %} Liste des Propositions{% endblock %}
+{% block pagetitle %}Liste des Propositions{% endblock %}
+{% block bodyContent %} 
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th id="center_align">Nom</th>
+                {#<th id="center_align">Detail</th>#}
+                <th id="center_align">Modifier</th>
+                {#<th id="center_align">Supprimer</th>#}
+            </tr>
+        </thead>
+        <tbody>
+            {% for Proposition in proposition%}
+                <tr>
+                    <td id="center_align">{{Proposition.title}}</td>
+                        {#<td id="center_align">
+                            <a class="button" id="btn_nav_detail" href='{{ path('admin_proposition_detail', {'id': Proposition.id})}}'> 
+                                Voir détail
+                            </a>
+                        </td>#}
+                        <td id="center_align">
+                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_proposition_edit',
+                                            {'id' : Proposition.id},
+                                            {'title': Proposition.title}
+                                      )}}">Modifier</a>
+                        </td>
+                        {#<td id="center_align">
+                            <a class="button" id="btn_nav_delete" href="{{ path('admin_proposition_delete',{'id' : Proposition.id})}}">Supprimer</a>
+                        </td>#}
+                    </tr>
+                </tbody>
+                {% endfor %}
+                </table>
+                {% endblock %}
+                    {#{% block addBtn %} 
+                        <a class="button" id="btn_add" href="{{ path('admin_proposition_add')}}">Ajouter une {{itemName}} </a>
+                    {% endblock %}#}

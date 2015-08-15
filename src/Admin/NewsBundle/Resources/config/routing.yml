@@ -1,4 +1,4 @@
-admin_news_homepage:
+admin_news_home:
     path: /
     defaults: { _controller: AdminNewsBundle:News:index }
     
@@ -19,7 +19,8 @@ admin_news_edit:
         id: \d+
     
 admin_news_delete:
-    path: /delete{id}
+    path: /delete/{id}
     defaults: { _controller: AdminNewsBundle:News:delete }
     requirements: 
         id: \d+
+

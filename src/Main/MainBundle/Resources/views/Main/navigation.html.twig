@@ -1,0 +1,32 @@
+{# Main/MainBundle/Resources/views/navigation.html.twig#}
+{% extends '::main.html.twig' %}
+{% block pageTitle %}Logo{% endblock %}
+{% block bodyContent %}
+    <div class="container" style="background-color: orange;">
+        <div class="row">           
+            <div id="sidbar">
+                <div class="twelve columns u-max-full-width">
+                    <a class="button u-max-full-width" href=""> Logo </a>
+                </div>
+                <div class="twelve columns">
+                    <a class="button u-max-full-width" id="btn_nav" href="">La Carte</a>
+                </div>
+                <div class="twelve columns">
+                    <a class="button u-max-full-width" id="btn_nav" href="">Menu du Jour</a>
+                </div>
+                <div class="twelve columns">
+                    <a class="button u-max-full-width" id="btn_nav" href="">News</a>
+                </div>
+                <div class="twelve columns">
+                    <a class="button u-max-full-width" id="btn_nav" href="">Au Sujet de notre Trattoria</a>
+                </div>
+                <div class="twelve columns">
+                    <a class="button u-max-full-width" id="btn_nav" href="">Partenaires</a>
+                </div>
+                <div class="twelve columns">
+                    <a class="button u-max-full-width" id="btn_nav" href="">Où Nous trouver</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

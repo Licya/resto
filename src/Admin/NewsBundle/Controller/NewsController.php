@@ -41,9 +41,9 @@ class NewsController extends Controller
 
         if (!$news) {
 
-            $ErrorMessage = "Désolé, aucune News été n'a trouvée pour cet id.";
+            $ErrorMessage = "Une erreur est survenue. Cette news n'existe pas";
 
-            return $this->render('AdminNewsBundle:News:error.html.twig', array('ErrorMessage' => $ErrorMessage, 'id' => $id, ));
+            return $this->render('AdminNewsBundle:News:error.html.twig', array('ErrorMessage' => $ErrorMessage,));
         }
 
         $title = $news->getTitle();
@@ -53,7 +53,7 @@ class NewsController extends Controller
         $sort = $news->getSort();
 
         return $this->render('AdminNewsBundle:News:detail.html.twig', array('title' => $title, 'subtitle' => $subtitle, 'id' => $id, 'description' => $description,
-                    'enable' => $enable, 'sort' => $sort, ));
+                    'enable' => $enable, 'sort' => $sort,));
     }
 
     public function addAction(Request $request)
@@ -64,7 +64,9 @@ class NewsController extends Controller
                 ->add('title', 'text')
                 ->add('subtitle', 'text')
                 ->add('description', 'textarea')
-                ->add('enable', 'checkbox')
+                ->add('enable', 'checkbox', array(
+                    'required' => false
+                ))
                 ->add('save', 'submit')
                 ->getForm();
 
@@ -76,7 +78,10 @@ class NewsController extends Controller
             $em->persist($news);
             $em->flush();
 
+            $SuccessMessage = 'La News a été ajoutée correctement.';
+
             $request->getSession()->getFlashBag()->add('success', 'News bien enregistrée.');
+            return $this->render('AdminNewsBundle:News:task_success.html.twig', array('SuccessMessage' => $SuccessMessage));
         }
         $id = $news->getId();
         $news->setSort($id);
@@ -104,7 +109,7 @@ class NewsController extends Controller
 
         $form = $this->createFormBuilder($news)
                 ->add('title', 'text')
-                ->add('subtitle','text')
+                ->add('subtitle', 'text')
                 ->add('description', 'textarea')
                 ->add('enable', 'checkbox')
                 ->add('sort', 'integer')
@@ -119,7 +124,13 @@ class NewsController extends Controller
             $em->persist($news);
             $em->flush();
 
+            $SuccessMessage = 'La News a été modifiée avec succès.';
+
             $request->getSession()->getFlashBag()->add('success', 'La News a été modifiée.');
+            return $this->render('AdminNewsBundle:News:task_success.html.twig', array('SuccessMessage' => $SuccessMessage));
+        } else {
+            $ErrorMessage = "Une erreur est survenue. La News n' pas pu être modifiée. Veuillez contacter votre webmaster.";
+            return $this->render('AdminNewsBundle:News:error.html.twig', array('ErrorMessage' => $ErrorMessage));
         }
 
         return $this->render('AdminNewsBundle:News:edit.html.twig', array('form' => $form->createView(), 'id' => $id,));
@@ -136,8 +147,18 @@ class NewsController extends Controller
         $subtitle = $news->getSubtitle();
         $description = $news->getDescription();
 
+        if (!$news) {
+
+            $ErrorMessage = "Une erreur est survenue. Cette news n'existe pas. Veuillez contacter votre webmaster.";
+
+            return $this->render('AdminNewsBundle:News:error.html.twig', array('ErrorMessage' => $ErrorMessage,));
+        }
+
         $em->remove($news);
         $em->flush();
+        
+        $SuccessMessage = "La News a été correctement effacée.";
+        return $this->render('AdminNewsBundle:News:task_success.html.twig', array('SuccessMessage' => $SuccessMessage,));
 
         return $this->render('AdminNewsBundle:News:delete.html.twig', array(
                     'id' => $id, 'title' => $title, 'subtitle' => $subtitle, 'description' => $description,
