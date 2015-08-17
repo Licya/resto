@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * News
@@ -25,6 +26,7 @@ class News
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $title;
 
@@ -56,7 +58,11 @@ class News
      */
     private $sort;
 
-
+    public function __construct()
+    {
+        $this->sort = 1;
+    }
+    
     /**
      * Get id
      *
