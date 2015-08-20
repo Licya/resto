@@ -19,6 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Entity\Proposition;
+use AppBundle\Form\PropositionType;
 
 class PropositionController extends Controller
 {
@@ -31,103 +32,70 @@ class PropositionController extends Controller
         return $this->render('AdminPropositionBundle:Proposition:index.html.twig', array('proposition' => $proposition,));
     }
 
-    /**
-     * At this moment, the entity Proposition possesses just one parameter.
-     * This is why detailAction() function is superfluous. However, in a future
-     * the customer would like to add some other parameter to this entity
-     */
-//    public function detailAction($id)
-//    {
-//
-//        $em = $this
-//                ->getDoctrine()
-//                ->getManager();
-//        $proposition = $em->getRepository('AppBundle:Proposition')->find($id);
-//
-//        if (!$proposition) {
-//
-//            $ErrorMessage = "Désolé, aucune proposition n'a trouvée pour cet id.";
-//
-//            return $this->render('AdminPropositionBundle:Proposition:error.html.twig', array('ErrorMessage' => $ErrorMessage, 'id' => $id));
-//        }
-//
-//        $title = $proposition->getTitle();
-//
-//        return $this->render('AdminPropositionBundle:Proposition:detail.html.twig', array('title' => $title, 'id' => $id,));
-//    }
-
-    /**
-     * addAction() function created for a future developement and management.
-     * In fact, for the moment the customer doesn't need to add proposition, but 
-     * perhaps, one day he would like to propose several Dailymenus...
-     * 
-     */
-//    public function addAction(Request $request)
-//    {
-//        $proposition = new Proposition();
-//        $form = $this->createFormBuilder($proposition)
-//                ->add('title', 'text')
-//                ->add('save', 'submit')
-//                ->getForm();
-//
-//        $form->handleRequest($request);
-//
-//        if ($form->isValid()) {
-//
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($proposition);
-//            $em->flush();
-//
-//            $request->getSession()->getFlashBag()->add('success', 'Proposition bien enregistrée.');
-//        }
-//
-//        return $this->render('AdminPropositionBundle:Proposition:add.html.twig', array('form' => $form->createView(),));
-//    }
-
-    public function editAction(Request $request, $id)
+    public function detailAction($id)
     {
+
         $em = $this
                 ->getDoctrine()
                 ->getManager();
         $proposition = $em->getRepository('AppBundle:Proposition')->find($id);
 
+        if (!$proposition) {
+            $this->addFlash('error', 'Cette Proposition n\'existe pas.');
+            return$this->redirectToRoute('admin_proposition_home');
+        }
+
         $title = $proposition->getTitle();
 
-        $proposition->setTitle($title);
+        return $this->render('AdminPropositionBundle:Proposition:detail.html.twig', array('title' => $title, 'id' => $id,));
+    }
 
-        $form = $this->createFormBuilder($proposition)
-                ->add('title', 'text')
-                ->add('save', 'submit')
-                ->getForm();
-
+    public function addAction(Request $request)
+    {
+        $proposition = new Proposition();
+        $form = $this->createForm(new PropositionType(), $proposition);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($proposition);
             $em->flush();
 
-            $successMessage = "La proposition a été correctement modifiée.";
-
-            $request->getSession()->getFlashBag()->add('success', 'La proposition a été modifiée.');
-            return $this->render('AdminPropositionBundle:Proposition:task_success.html.twig', array('SuccessMessage' => $successMessage));
+            $this->addFlash('success', 'Proposition bien enregistrée.');
+            
+            return $this->redirectToRoute('admin_proposition_detail', array('id' => $proposition->getId()));
         }
-//        else {
-//            $errorMessage = "Une erreur est survenue. La proposition n'a pas été modifée."
-//                    ."Veuillez contacter votre webmaster";
-//            return $this->render('AdminPropositionBundle:Proposition:error.html.twig', array('ErrorMessage' => $errorMessage));
-//        }
+
+        return $this->render('AdminPropositionBundle:Proposition:add.html.twig', array('form' => $form->createView(),));
+    }
+
+    public function editAction(Request $request, $id)
+    {
+       $em = $this->getDoctrine()->getManager();
+       $proposition = $em->getRepository('AppBundle:Proposition')->find($id);
+       
+       $form = $this->createForm(new \AppBundle\Form\PropositionType(), $proposition);
+       $form->handleRequest($request);
+       
+        if ($form->isValid()) {
+            $em->persist($proposition);
+            $em->flush();
+
+            $this->addFlash('success', 'La Proposition a été modifiée.');
+            return $this->redirectToRoute('admin_proposition_detail', array('id' => $proposition->getId()
+            ));
+        }
 
         return $this->render('AdminPropositionBundle:Proposition:edit.html.twig', array('form' => $form->createView(), 'id' => $id,));
     }
 
-    /**
+     /**
      * deleteAction() function created for a future developement and management.
      * Moreover this function needs a more important data processing because of 
      * the integrity constraint. In fact, Proposition entity possesses a foreign key
-     * in Daily_Menu entity (see diagram).
+     * in Product entity and in DailyMenu entity (see diagram).
      */
+    
 //    public function deleteAction($id)
 //    {
 //        $em = $this
@@ -135,13 +103,17 @@ class PropositionController extends Controller
 //                ->getManager();
 //        $proposition = $em->getRepository('AppBundle:Proposition')->find($id);
 //
-//        $title =$proposition->getTitle();
+//        if (!$proposition) {
+//            
+//            $this->addFlash('error', 'Proposition n\'existe pas.');
+//            return$this->redirectToRoute('admin_proposition_home');
+//        }
 //
 //        $em->remove($proposition);
 //        $em->flush();
+//        
+//        $this->addFlash('success', 'Proposition bien supprimée.');
+//        return$this->redirectToRoute('admin_proposition_home');
 //
-//        return $this->render('AdminPropositionBundle:Proposition:delete.html.twig', array(
-//                    'id' => $id, 'title' => $title
-//        ));
 //    }
 }
