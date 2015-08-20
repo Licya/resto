@@ -28,11 +28,19 @@ class Proposition
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
-
+    
     /**
-     * @ORM\Entity
+     * @var DailyMenu
+     * 
+     * @ORM\ManyToOne(targetEntity="DailyMenu", inversedBy="propositions")
      */
-
+    private $dailyMenu;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Product", mappedBy="proposition")
+     */
+    private $product;
+    
     /**
      * Get id
      *
@@ -66,4 +74,49 @@ class Proposition
         return $this->title;
     }
 
+    /**
+     * Set dailyMenu
+     *
+     * @param \AppBundle\Entity\DailyMenu $dailyMenu
+     * @return Proposition
+     */
+    public function setDailyMenu(\AppBundle\Entity\DailyMenu $dailyMenu = null)
+    {
+        $this->dailyMenu = $dailyMenu;
+
+        return $this;
+    }
+
+    /**
+     * Get dailyMenu
+     *
+     * @return \AppBundle\Entity\DailyMenu 
+     */
+    public function getDailyMenu()
+    {
+        return $this->dailyMenu;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \AppBundle\Entity\Product $product
+     * @return Proposition
+     */
+    public function setProduct(\AppBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \AppBundle\Entity\Product 
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
 }

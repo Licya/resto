@@ -82,7 +82,7 @@ class LoadData implements FixtureInterface
             $dail->setPrice($faker->randomFloat(10, 100));
             $dail->setDate($faker->dateTime);
             $dail->setEnable(true);
-            $dail->setPropositions($prop);
+            $dail->addProposition($prop);
             $manager->persist($dail);
         }
         $manager->flush();

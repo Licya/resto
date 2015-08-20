@@ -50,9 +50,19 @@ class DailyMenu
     private $enable;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Proposition")
+     * @var Proposition[]
+     * 
+     * @ORM\OneToMany(targetEntity="Proposition", mappedBy="dailyMenu")
      */
     private $propositions;
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->propositions = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     
     /**
      * Get id
@@ -156,7 +166,6 @@ class DailyMenu
         return $this->enable;
     }
 
-
     /**
      * Set propositions
      *
@@ -178,5 +187,29 @@ class DailyMenu
     public function getPropositions()
     {
         return $this->propositions;
+    }
+
+    /**
+     * Add propositions
+     *
+     * @param \AppBundle\Entity\Proposition $propositions
+     * @return DailyMenu
+     */
+    public function addProposition(\AppBundle\Entity\Proposition $propositions)
+    {
+        $this->propositions[] = $propositions;
+        $propositions->setDailyMenu($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove propositions
+     *
+     * @param \AppBundle\Entity\Proposition $propositions
+     */
+    public function removeProposition(\AppBundle\Entity\Proposition $propositions)
+    {
+        $this->propositions->removeElement($propositions);
     }
 }

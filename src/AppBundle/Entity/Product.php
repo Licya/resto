@@ -58,7 +58,7 @@ class Product
     private $enable;
 
     /**
-     * @ORM\OneToOne(targetEntity="Proposition")
+     * @ORM\OneToOne(targetEntity="Proposition", inversedBy="product")
      */
     private $proposition;
 
