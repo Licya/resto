@@ -1,0 +1,31 @@
+homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Default:homepage }
+    
+newspage:
+    path: /newspage
+    defaults: { _controller: AppBundle:Default:newspage }
+    
+carte:
+    path: /carte
+    defaults: { _controller: AppBundle:Default:carte }
+    
+infos-pratiques:
+    path: /infos-pratiques
+    defaults: { _controller: AppBundle:Default:infosPratiques }
+    
+partenaires:
+    path: /partenaires
+    defaults: { _controller: AppBundle:Default:partenaires }
+    
+trattoria:
+    path: /trattoria
+    defaults: { _controller: AppBundle:Default:trattoria }
+ 
+nous-trouver:
+    path: /nous-trouver
+    defaults: { _controller: AppBundle:Default:nousTrouver }
+    
+nous-contacter:
+    path: /nous-contacter
+    defaults: { _controller: AppBundle:Default:nousContacter}
