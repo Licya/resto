@@ -1,7 +1,3 @@
-main_main:
-    resource: "@MainMainBundle/Resources/config/routing.yml"
-    prefix:   /main
-
 admin_proposition:
     resource: "@AdminPropositionBundle/Resources/config/routing.yml"
     prefix:   /proposition
@@ -35,6 +31,4 @@ admin_category:
     prefix:   /category
    
 app:
-    resource: "@AppBundle/Controller/"
-    type:     annotation
-    
+    resource: "@AppBundle/Resources/config/routing.yml"
