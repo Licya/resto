@@ -1,0 +1,9 @@
+{# app/Resources/views/default/partenaires.html.twig #}
+{% for Partners in partners %}
+    {%if Partners.enable == 1%}
+        <p>{{Partners.name}}
+            <a href='{{Partners.websiteLink}}'>{{Partners.websiteLink}}</a>
+        </p>
+    {% endif %}
+    <hr>
+{% endfor %}
