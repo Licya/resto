@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CategoryType extends AbstractType
+class PropositionType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,12 +15,7 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text')
-            ->add('description', 'textarea')
-            ->add('enable', 'checkbox', array(
-                'required' => false,                
-            ))
-            ->add('sort', 'integer')
+            ->add('title', 'text')
         ;
     }
     
@@ -30,7 +25,7 @@ class CategoryType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Category'
+            'data_class' => 'AppBundle\Entity\Proposition'
         ));
     }
 
@@ -39,6 +34,6 @@ class CategoryType extends AbstractType
      */
     public function getName()
     {
-        return 'appbundle_category';
+        return 'appbundle_proposition';
     }
 }

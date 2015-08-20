@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class DailyMenuType extends AbstractType
 {
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,14 +16,21 @@ class DailyMenuType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('price')
-            ->add('date')
-            ->add('enable')
-            ->add('propositions')
+                ->add('title', 'text')
+                ->add('price', 'number')
+                ->add('date', 'date', array(
+                    'widget' => 'single_text',
+                    'format' => 'dd-MM-yyyy'
+                ))
+                ->add('enable', 'checkbox', array(
+                    'required' => false,
+                ))
+                ->add('propositions', 'text', array(
+                    'required' => false,
+                ))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -40,4 +48,5 @@ class DailyMenuType extends AbstractType
     {
         return 'appbundle_dailymenu';
     }
+
 }

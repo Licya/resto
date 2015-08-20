@@ -15,9 +15,11 @@ class PartnerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('websiteLink')
-            ->add('enable')
+            ->add('name', 'text')
+            ->add('websiteLink', 'email')
+            ->add('enable', 'checkbox', array(
+                'required' => false,
+            ))
             ->add('sort')
         ;
     }

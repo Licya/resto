@@ -1,0 +1,15 @@
+{# app/Resources/views/default/carte.html.twig #}
+
+{% for category in categories %}
+    <h1>{{ category.name|capitalize }}</h1>
+    {% for product in category.products %}
+        {% if product.enable ==1 %}
+            <h1>{{ product.name|capitalize }}</h1>
+            <p>{{ product.description }}</p>
+            <p>Prix :{{ product.mainPrice }} CHF</p>
+            <p>Prix deuxième: {{ product.secondPrice }} CHF</p>       
+            <p>Catégorie: {{ product.category.name }}</p>
+        {% endif %}
+        <hr>
+    {% endfor %}
+{% endfor %}
