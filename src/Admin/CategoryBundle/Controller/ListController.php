@@ -19,6 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Entity\Category;
+use AppBundle\Form\CategoryType;
 
 class ListController extends Controller
 {
@@ -41,10 +42,8 @@ class ListController extends Controller
 
         if (!$category) {
 
-            $ErrorMessage = "Une erreur est survenue. La Catégorie que vous avez selectionnée n'existe pas."
-                    ."Veuillez prendre contact avec votre webmaster";
-
-            return $this->render('AdminCategoryBundle:List:error.html.twig', array('ErrorMessage' => $ErrorMessage, 'id' => $id));
+            $this->addFlash('error', 'News n\'existe pas.');
+            return $this->redirectToRoute('admin_news_home');
         }
 
         $name = $category->getName();
@@ -52,24 +51,23 @@ class ListController extends Controller
         $enable = $category->getEnable();
         $sort = $category->getSort();
 
-        return $this->render('AdminCategoryBundle:List:detail.html.twig', array('name' => $name, 'id' => $id, 'description' => $description,
-                    'enable' => $enable, 'sort' => $sort));
+        return $this->render('AdminCategoryBundle:List:detail.html.twig', array(
+                    'name' => $name,
+                    'id' => $id,
+                    'description' => $description,
+                    'enable' => $enable,
+                    'sort' => $sort,
+        ));
     }
 
     /**
      * addAction() function created for a future developement and management
      */
+    
 //    public function addAction(Request $request)
 //    {
 //        $category = new Category();
-//        $category->setSort(1);
-//        $form = $this->createFormBuilder($category)
-//                ->add('name', 'text')
-//                ->add('description', 'textarea')
-//                ->add('enable', 'checkbox')
-//                ->add('save', 'submit')
-//                ->getForm();
-//
+//        $form = $this->createForm(new CategoryType(), $category);
 //        $form->handleRequest($request);
 //
 //        if ($form->isValid()) {
@@ -78,12 +76,11 @@ class ListController extends Controller
 //            $em->persist($category);
 //            $em->flush();
 //
-//            $request->getSession()->getFlashBag()->add('success', 'Categorie bien enregistrée.');
-//            return $this->render('AdminCategoryBundle:List:task_success.html.twig');
+//            $this->addFlash('success', 'Catégorie bien enregistrée.');
+//
+//            return $this->redirectToRoute('admin_category_detail', array('id' => $category->getId()));
 //        }
-//        $id = $category->getId();
-//        $category->setSort($id);
-//        return $this->render('AdminCategoryBundle:List:add.html.twig', array('form' => $form->createView(),));
+//       return $this->render('AdminCategoryBundle:List:add.html.twig', array('form' => $form->createView(),));
 //    }
 
     public function editAction(Request $request, $id)
@@ -93,42 +90,16 @@ class ListController extends Controller
                 ->getManager();
         $category = $em->getRepository('AppBundle:Category')->find($id);
 
-        $name = $category->getName();
-        $description = $category->getDescription();
-        $enable = $category->getEnable();
-        $sort = $category->getSort();
-
-        $category->setName($name);
-        $category->setDescription($description);
-        $category->setEnable($enable);
-        $category->setSort($sort);
-
-        $form = $this->createFormBuilder($category)
-                ->add('name', 'text')
-                ->add('description', 'textarea')
-                ->add('enable', 'checkbox')
-                ->add('sort', 'integer')
-                ->add('save', 'submit')
-                ->getForm();
-
+        $form = $this->createForm(new \AppBundle\Form\CategoryType(), $category);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-
-            $em = $this->getDoctrine()->getManager();
             $em->persist($category);
             $em->flush();
 
-            $SuccessMessage = 'La Catégorie a été modifiée avec succès.';
-
-            $request->getSession()->getFlashBag()->add('success', 'Categorie a été modifiée.');
-            return $this->render('AdminCategoryBundle:List:task_success.html.twig', array('SuccessMessage', $SuccessMessage));
-        } else {
-            $ErrorMessage = "Une erreur est survenu. La Catégorie n'a pas pu être modifiée."
-                    ."Veuillez prendre contact avec votre webmaser.";
-
-            return $this->render('AdminCategoryBundle:List:error.html.twig', array('ErrorMessage' => $ErrorMessage));
-        }
+            $this->addFlash('success', 'La Catégorie a été modifiée.');
+            return $this->redirectToRoute('admin_category_detail', array('id' => $category->getId()));
+        } 
         return $this->render('AdminCategoryBundle:List:edit.html.twig', array('form' => $form->createView(), 'id' => $id,));
     }
 
@@ -145,14 +116,16 @@ class ListController extends Controller
 //                ->getManager();
 //        $category = $em->getRepository('AppBundle:Category')->find($id);
 //
-//        $name = $category->getName();
-//        $description = $category->getDescription();
+//        if (!$category) {
+//
+//            $this->addFlash('error', 'Cette Catégorie n\'existe pas.');
+//            return $this->redirectToRoute('admin_category_home');
+//        }
 //
 //        $em->remove($category);
 //        $em->flush();
 //
-//        return $this->render('AdminCategoryBundle:List:delete.html.twig', array(
-//                    'id' => $id, 'name' => $name, 'description' => $description
-//        ));
+//        $this->addFlash('success', 'Catégorie bien supprimée.');
+//        return$this->redirectToRoute('admin_category_home');
 //    }
 }

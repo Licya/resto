@@ -19,6 +19,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use AppBundle\Entity\News;
+use AppBundle\Form\NewsType;
 
 class NewsController extends Controller
 {
@@ -41,9 +42,8 @@ class NewsController extends Controller
 
         if (!$news) {
 
-            $ErrorMessage = "Une erreur est survenue. Cette news n'existe pas";
-
-            return $this->render('AdminNewsBundle:News:error.html.twig', array('ErrorMessage' => $ErrorMessage,));
+            $this->addFlash('error', 'News n\'existe pas.');
+            return $this->redirectToRoute('admin_news_home');
         }
 
         $title = $news->getTitle();
@@ -53,19 +53,19 @@ class NewsController extends Controller
         $sort = $news->getSort();
 
         return $this->render('AdminNewsBundle:News:detail.html.twig', array(
-            'title' => $title,
-            'subtitle' => $subtitle,
-            'id' => $id,
-            'description' => $description,
-            'enable' => $enable,
-            'sort' => $sort,
+                    'title' => $title,
+                    'subtitle' => $subtitle,
+                    'id' => $id,
+                    'description' => $description,
+                    'enable' => $enable,
+                    'sort' => $sort,
         ));
     }
 
     public function addAction(Request $request)
     {
         $news = new News();
-        $form = $this->createForm(new \AppBundle\Form\NewsType(), $news);
+        $form = $this->createForm(new NewsType(), $news);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
@@ -74,7 +74,7 @@ class NewsController extends Controller
             $em->flush();
 
             $this->addFlash('success', 'News bien enregistrée.');
-            
+
             return $this->redirectToRoute('admin_news_detail', array('id' => $news->getId()));
         }
 
@@ -85,15 +85,16 @@ class NewsController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $news = $em->getRepository('AppBundle:News')->find($id);
-        
+
         $form = $this->createForm(new \AppBundle\Form\NewsType(), $news);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em->persist($news);
             $em->flush();
+
             $this->addFlash('success', 'La News a été modifiée.');
-            return $this->render('AdminNewsBundle:News:task_success.html.twig', array('SuccessMessage' => $SuccessMessage));
+            return $this->redirectToRoute('admin_news_detail', array('id' => $news->getId()));
         }
 
         return $this->render('AdminNewsBundle:News:edit.html.twig', array('form' => $form->createView(), 'id' => $id,));
@@ -106,26 +107,17 @@ class NewsController extends Controller
                 ->getManager();
         $news = $em->getRepository('AppBundle:News')->find($id);
 
-        $title = $news->getTitle();
-        $subtitle = $news->getSubtitle();
-        $description = $news->getDescription();
-
         if (!$news) {
 
-            $ErrorMessage = "Une erreur est survenue. Cette news n'existe pas. Veuillez contacter votre webmaster.";
-
-            return $this->render('AdminNewsBundle:News:error.html.twig', array('ErrorMessage' => $ErrorMessage,));
+            $this->addFlash('error', 'News n\'existe pas.');
+            return $this->redirectToRoute('admin_news_home');
         }
 
         $em->remove($news);
         $em->flush();
-        
-        $SuccessMessage = "La News a été correctement effacée.";
-        return $this->render('AdminNewsBundle:News:task_success.html.twig', array('SuccessMessage' => $SuccessMessage,));
 
-        return $this->render('AdminNewsBundle:News:delete.html.twig', array(
-                    'id' => $id, 'title' => $title, 'subtitle' => $subtitle, 'description' => $description,
-        ));
+        $this->addFlash('success', 'News bien supprimée.');
+        return $this->redirectToRoute('admin_news_home');
     }
 
 }
