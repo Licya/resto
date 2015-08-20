@@ -1,0 +1,17 @@
+{# src/Admin/ProductBundle/Resources/views/Product/detail.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Produit' %}
+{% block pagetitle %}Affichage du détail d'un {{itemName}}{% endblock %}
+{% block bodyContent %}
+    <h2>Le Produit: {{name}}</h2>
+    <b>Nom: </b>{{name}}<br>
+    <b>Description: </b><em>{{description}}</em><br>
+    <b>Prix: </b>{{mainPrice}}
+    <b>Second prix: </b>{{secondPrice}}
+    <b>Atif: </b>
+    {%if enable == 1%}
+        oui
+    {%else%}
+        non
+    {%endif%}<br>
+{% endblock %}

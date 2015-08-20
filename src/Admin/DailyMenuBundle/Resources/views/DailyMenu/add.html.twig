@@ -1,0 +1,10 @@
+{# src/Admin/DailyMenuBundle/Resources/views/DailyMenu/add.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Menu du Jour' %}
+{% block pagetitle %}Ajouter un {{itemName}}{% endblock %}
+{% block bodyContent %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" name="Add">
+    {{ form_end(form) }}
+{% endblock %}

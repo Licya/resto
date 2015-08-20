@@ -1,0 +1,11 @@
+{# src/Admin/DailyMenuBundle/Resources/views/DailyMenu/delete.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Menu du Jour' %}
+{% block pagetitle %}Effacement d'un {{itemName}}{% endblock %}
+{% block bodyContent %}        
+    <h2>Le {{itemName}}: {{title}}</h2>
+    <b>Titre: </b>{{title}}<br>
+    <b>Prix: </b>{{price}}<br>
+    <b>Date: </b><em>{{date}}</em><br>
+    <p>a été correctement effacée</p>
+{% endblock %}

@@ -1,0 +1,12 @@
+{# src/Admin/ProductBundle/Resources/views/Product/delete.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Produit' %}
+{% block pagetitle %}Effacement d'un Produit{% endblock %}
+{% block bodyContent %}        
+     <h2>Le Produit: {{title}}</h2>
+    <b>Nom: </b>{{name}}<br>
+    <b>Description: </b><em>{{description}}</em><br>
+    <b>Prix: </b>{{mainPrice}}
+    <b>Second Prix: </b>{{secondPrice}}
+    <p>a été correctement effacée</p>
+{% endblock %}

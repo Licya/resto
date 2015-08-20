@@ -1,0 +1,51 @@
+{# src/Admin/DailyMenuBundle/views/DailyMenu/index.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Menu du Jour' %}
+{% block title %} Liste des {{itemName}}s {% endblock %}
+{% block pagetitle %}Liste {{itemName}}s {% endblock %}
+{% block bodyContent %} 
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th id="center_align">Titre</th>
+                <th id="center_align">Publiée</th>
+                <th id="center_align">Detail</th>
+                <th id="center_align">Modifier</th>
+                <th id="center_align">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for DailyMenu in dailyMenu %}
+                <tr>
+                    <td id="center_align">{{DailyMenu.title}}</td>
+                    <td id="center_align">{%if DailyMenu.enable == 1%}
+                        oui
+                    {%else%}
+                        non
+                        {%endif%}
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_detail" href='{{ path('admin_daily_menu_detail', {'id': DailyMenu.id})}}'> 
+                                Voir détail
+                            </a>
+                        </td>
+                        <td id="center_align">
+                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_daily_menu_edit',
+                                            {'id' : DailyMenu.id},
+                                            {'title': DailyMenu.title},
+                                            {'price': DailyMenu.price},
+                                            {'date' : DailyMenu.date},
+                                            {'enable':DailyMenu.enable}
+                           )}}">Modifier</a>
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_delete" href="{{ path('admin_daily_menu_delete',{'id' : DailyMenu.id})}}">Supprimer</a>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+                </table>
+                {% endblock %}
+                    {% block addBtn %} 
+                        <a class="button u-max-full-width" id="btn_add" href="{{ path('admin_daily_menu_add')}}">Ajouter un {{itemName}} </a>
+                    {% endblock %}

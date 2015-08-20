@@ -1,0 +1,52 @@
+{# src/Admin/ProductBundle/views/Product/index.html.twig#}
+{% extends '::base.html.twig' %}
+{% set itemName = 'Produit' %}
+{% block title %} Liste des {{itemName}}s {% endblock %}
+{% block pagetitle %}Liste des {{itemName}}s {% endblock %}
+{% block bodyContent %} 
+    <table class="u-full-width">
+        <thead>
+            <tr>
+                <th id="center_align">Titre</th>
+                <th id="center_align">Publiée</th>
+                <th id="center_align">Detail</th>
+                <th id="center_align">Modifier</th>
+                <th id="center_align">Supprimer</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Product in product %}
+                <tr>
+                    <td id="center_align">{{Product.name}}</td>
+                    <td id="center_align">{%if Product.enable == 1%}
+                        oui
+                    {%else%}
+                        non
+                        {%endif%}
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_detail" href='{{ path('admin_product_detail', {'id': Product.id})}}'> 
+                                Voir détail
+                            </a>
+                        </td>
+                        <td id="center_align">
+                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_product_edit',
+                                            {'id' : Product.id},
+                                            {'name': Product.name},                                           
+                                            {'description': Product.description},
+                                            {'mainPrice' : Product.mainPrice},
+                                            {'secondPrice' : Product.secondPrice},
+                                            {'enable':Product.enable}
+                           )}}">Modifier</a>
+                        </td>
+                        <td id="center_align">
+                            <a class="button" id="btn_nav_delete" href="{{ path('admin_product_delete',{'id' : Product.id})}}">Supprimer</a>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+                </table>
+                {% endblock %}
+                    {% block addBtn %} 
+                        <a class="button u-max-full-width" id="btn_add" href="{{ path('admin_product_add')}}">Ajouter un {{itemName}} </a>
+                    {% endblock %}
