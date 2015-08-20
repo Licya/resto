@@ -2,4 +2,10 @@
 {% extends '::base.html.twig' %}
 {% set itemName = 'News' %}
 {% block pagetitle %}Ajouter une News{% endblock %}
-{% block bodyContent %}{{form(form)}}{% endblock %}
+{% block bodyContent %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" name="Add">
+    {{ form_end(form) }}
+{% endblock %}
+

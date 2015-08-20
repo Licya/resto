@@ -3,4 +3,9 @@
 {% extends '::base.html.twig' %}
 {% set itemName = 'Catégories' %}
 {% block pagetitle %}Modifier une catégorie Catégories{% endblock %}
-{% block bodyContent %}{{form(form)}}{% endblock %}
+{% block bodyContent %}
+    {{ form_start(form)}}
+        {{ form_widget(form)}}
+        <input type="submit" name="Edit">
+    {{ form_end(form)}}
+{% endblock %}

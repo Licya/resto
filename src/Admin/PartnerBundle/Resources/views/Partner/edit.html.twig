@@ -2,4 +2,9 @@
 {% extends '::base.html.twig' %}
 {% set itemName = 'Partenaire' %}
 {% block pagetitle %}Modifier un {{itemName}}{% endblock %}
-{% block bodyContent %}{{form(form)}}{% endblock %}
+{% block bodyContent %}
+    {{ form_start(form)}}
+        {{ form_widget(form)}}
+        <input type="submit" name="Edit">
+    {{ form_end(form)}}
+{% endblock %}
