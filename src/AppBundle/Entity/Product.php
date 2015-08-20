@@ -225,7 +225,7 @@ class Product
     public function setCategory(\AppBundle\Entity\Category $category = null)
     {
         $this->category = $category;
-
+     
         return $this;
     }
 

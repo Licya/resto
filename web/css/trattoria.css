@@ -1,0 +1,107 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 août 2015, 10:02:19
+    Author     : Licya
+*/
+/*
+Navigation
+------------------------------------------------------------------------------*/
+
+#nav ul{
+    margin: 0;
+    padding: 40px 0 0 0;
+}
+
+#nav li{ list-style-type: none; }
+
+#nav a{
+    display: block;
+    line-height: 15px;
+    text-align: left;
+    width: 200px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    padding-left: 25px;
+}
+
+#nav a:hover{
+    opacity: 0.9;
+    font-weight: bold;
+    color: #00cc66;
+}
+
+/*
+Daily Menu
+------------------------------------------------------------------------------*/
+
+#title_menu { 
+    color: white; 
+    font-size: 1em;
+    text-align: center;
+}
+
+#proposition_menu{ 
+    font-style: italic;
+    color: white;
+    text-align: center;
+}
+
+#prix{
+    color: white;
+    text-align: center;
+}
+
+/*
+Content
+------------------------------------------------------------------------------*/
+#container{
+    color : white;
+    background-color: #000;     
+    border-left: 10px solid #00cc66;
+    border-right: 10px solid #00cc66;
+    max-width: 800px;
+    opacity: 0.8;
+}
+
+body{
+
+}
+
+.home_image{
+    background: transparent url(../images/fotolia_78320771.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+#content{}
+
+/*
+footer
+-------------------------------------------------------------------------------*/
+#footer{ color: white; }
+
+/*
+header
+-------------------------------------------------------------------------------*/
+#title{ 
+    color: white; 
+    font-size: 3em;
+    text-align: center;
+}
+
+#logo{
+    //padding-left: 25px;
+    width: 50%;
+    //margin: auto; pour mobile
+}
+
+#header{}
+
+#text_center{ text-align: center;}
+

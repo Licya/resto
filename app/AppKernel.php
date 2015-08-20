@@ -25,7 +25,7 @@ class AppKernel extends Kernel
             new Admin\ProductBundle\AdminProductBundle(),
             new Admin\ContactBundle\AdminContactBundle(),
             new Admin\PropositionBundle\AdminPropositionBundle(),
-            new Main\MainBundle\MainMainBundle(),
+            new Trattoria\TrattoriaBundle\TrattoriaTrattoriaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
