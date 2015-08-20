@@ -1,3 +1,25 @@
-admin_daily_menu_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminDailyMenuBundle:Default:index }
+admin_daily_menu_home:
+    path:     /
+    defaults: { _controller: AdminDailyMenuBundle:DailyMenu:index }
+
+admin_daily_menu_detail:
+    path: /detail/{id}
+    defaults: {  _controller: AdminDailyMenuBundle:DailyMenu:detail }
+    requirements:
+        id: \d+
+        
+admin_daily_menu_add:
+    path: /add
+    defaults: { _controller: AdminDailyMenuBundle:DailyMenu:add }
+    
+admin_daily_menu_edit:
+    path: /edit/{id}
+    defaults: { _controller: AdminDailyMenuBundle:DailyMenu:edit }
+    requirements:
+        id: \d+
+
+admin_daily_menu_delete:
+    path: /delete/{id}
+    defaults: { _controller: AdminDailyMenuBundle:DailyMenu:delete }
+    requirements:
+        id: \d+

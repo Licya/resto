@@ -1,3 +1,25 @@
-admin_product_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: AdminProductBundle:Default:index }
+admin_product_home:
+    path:     /
+    defaults: { _controller: AdminProductBundle:Product:index }
+    
+admin_product_detail:
+    path: /detail/{id}
+    defaults: { _controller: AdminProductBundle:Product:detail }
+    requirements:
+        id: \d+
+        
+admin_product_add:
+    path: /add
+    defaults: { _controller: AdminProductBundle:Product:add }
+
+admin_product_edit:
+    path: /edit/{id}
+    defaults: {_controller: AdminProductBundle:Product:edit }
+    requirements: 
+        id: \d+
+
+admin_product_delete:
+    path: /delete/{id}
+    defaults: { _controller: AdminProductBundle:Product:delete }
+    requirements:
+        id: \d+
