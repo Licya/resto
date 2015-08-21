@@ -16,7 +16,9 @@ class CategoryType extends AbstractType
     {
         $builder
             ->add('name', 'text')
-            ->add('description', 'textarea')
+            ->add('description', 'textarea', array(
+                'required' => false,
+            ))
             ->add('enable', 'checkbox', array(
                 'required' => false,                
             ))
