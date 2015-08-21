@@ -75,7 +75,7 @@ body{
 }
 
 .home_image{
-    background: transparent url(../images/pasta_1.jpg) 0 0 no-repeat fixed; 
+    background: transparent url(../images/pasta.jpg) 0 0 no-repeat fixed; 
     text-align: center;
     background-size: cover;
 }
@@ -122,6 +122,55 @@ body{
     background-size: cover;
 }
 
+.entrees{
+    background: transparent url(../images/insalata.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.pates{
+    background: transparent url(../images/pasta_1.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.viandes{
+    background: transparent url(../images/carne.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.poissons{
+    background: transparent url(../images/pesce.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.hamburgers{
+    background: transparent url(../images/panino.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.pizza{
+    background: transparent url(../images/pizza.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.dessert{
+    background: transparent url(../images/dolce.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.dejeuner{
+    background: transparent url(../images/cake.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+
 #content{}
 
 /*
@@ -140,7 +189,7 @@ header
 
 #logo{
     //padding-left: 25px;
-    width: 50%;
+    width: 100%;
     //margin: auto; pour mobile
 }
 

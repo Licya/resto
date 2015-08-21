@@ -29,3 +29,35 @@ nous-trouver:
 nous-contacter:
     path: /nous-contacter
     defaults: { _controller: AppBundle:Default:nousContacter}
+    
+dejeuners:
+    path: /dejeuners
+    defaults: { _controller: AppBundle:Default:dejeuners }
+    
+desserts:
+    path: /desserts
+    defaults: { _controller: AppBundle:Default:desserts }
+
+entrees:
+   path: /entrees
+   defaults: { _controller: AppBundle:Default:entrees }
+
+hamburgers:
+    path: /hamburgers
+    defaults: { _controller: AppBundle:Default:hamburgers }
+
+pates:
+    path: /pates
+    defaults: { _controller: AppBundle:Default:pates }
+
+pizza:
+    path: /pizza
+    defaults: { _controller: AppBundle:Default:pizza }
+ 
+poissons:
+    path: /poissons
+    defaults: { _controller: AppBundle:Default:poissons }
+    
+viandes:
+    path: /viandes
+    defaults: { _controller: AppBundle:Default:viandes }

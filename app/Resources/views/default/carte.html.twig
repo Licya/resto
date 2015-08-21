@@ -2,10 +2,10 @@
 {% extends '::trattoriaBase.html.twig' %}
 {% block pageTitle %}<h1 id="title">La Carte</h1>{% endblock %}
 {% block image %}carte{% endblock %}
-{% block navigation %}{{ include ('default/siteNavigation.html.twig') }}{% endblock %}    
+{% block navigation %}{{ include ('default/CarteNavigation.html.twig') }}{% endblock %}    
 {% block content %}
 {% for category in categories %}
-    <h1>{{ category.name|capitalize }}</h1>
+    <h1>{{ category.name|upper }}</h1>
     {% for product in category.products %}
         {% if product.enable == 1 %}
             <h1>{{ product.name|capitalize }}</h1>

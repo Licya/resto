@@ -68,4 +68,43 @@ class DefaultController extends Controller
         return $this->render('default/nous-contacter.html.twig');
     }
 
+    public function dejeunersAction(Request $request)
+    {
+        return $this->render('default/dejeuners.html.twig');
+    }
+    
+    public function dessertsAction(Request $request)
+    {
+        return $this->render('default/desserts.html.twig');
+    }
+    
+    public function entreesAction(Request $request)
+    {
+        return $this->render('default/entrees.html.twig');
+    }
+    
+    public function hamburgersAction(Request $request)
+    {
+        return $this->render('default/hamburgers.html.twig');
+    }
+    
+    public function patesAction(Request $request)
+    {
+        return $this->render('default/pates.html.twig');
+    }
+    
+    public function poissonsAction(Request $request)
+    {
+        return $this->render('default/poissons.html.twig');
+    }
+    
+    public function viandesAction(Request $request)
+    {
+        return $this->render('default/viandes.html.twig');
+    }
+    
+     public function pizzaAction(Request $request)
+    {
+        return $this->render('default/pizza.html.twig');
+    }
 }
