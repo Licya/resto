@@ -1,5 +1,4 @@
 {# app/Resources/views/trattoriaBase.twig #}
-{% block footer %}&copy;Trattoria d'Italia-2015{% endblock %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,23 +13,25 @@
             <link href="{{ asset('/css/normalize.css')}}" type="text/css" rel="stylesheet"/>
         {% endblock %}
     </head>
-    <body>
-        {% block image %} {% endblock %}
-        <div class="container u-pull-left" id="container">
+    <body>       
+        <div class="{% block image %} {% endblock %}">
+            <div class="container" id="container">
             {% block header %}{% endblock %}
-            <div class="row">
-                <div class="four columns">
-                    {% block navigation %}{% endblock %}
-                </div>
-                <div class="eigth columns">
-                {% block pageTitle %}{% endblock %}
-                {% block content %}{% endblock %}
+                <div class="row">
+                    <div class="four columns">
+                        <img id="logo" src="../../../web/images/logo.png" alt=""/>
+                        {% block navigation %}{% endblock %}
+                    </div>
+                    <div class="eight columns">
+                        {% block pageTitle %}{% endblock %}
+                        {% block content %}{% endblock %}
+                     </div>
                 </div>
                 <div id="footer">
                     <hr>
-                    {% block footer %}{% endblock %}
+                    {% block footer %}&copy;Trattoria d'Italia-2015{% endblock %}
                 </div>
-            </div>            
-        </div> 
+          </div>
+        </div>
     </body>
 </html>
