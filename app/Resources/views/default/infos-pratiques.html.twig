@@ -1,0 +1,37 @@
+{# app/Resources/views/default/infos-pratiques.html.twig #}
+{% extends '::trattoriaBase.html.twig' %}
+{% block pageTitle %}<h1 id="title">Infos Pratiques</h1>{% endblock %}
+{% block image %}infos{% endblock %}
+{% block navigation %}{{ include ('default/siteNavigation.html.twig') }}{% endblock %}    
+{% block content %}
+    <h4>Horaires</h4>
+    <p id='f-size'>
+        Lundi-Jeudi 8h00 - 18h30<br>
+        Vendredi 8h00 - 20h00<br>
+        Dimanche et Jours fériés fermés<br>
+    <hr>
+</p>
+<h4>Horaires de la Cuisine</h4>
+<p id='f-size'>11h00 - 14h00<br>
+    sauf exception<br>
+<hr>
+</p>
+<h4>Moyens de Paiements</h4>
+<p id='f-size'>Paiement comptant<br>
+    Maestro<br>
+    Mastercard<br>
+    Postcard<br>
+    Visa
+<hr>
+</p>
+<h4>Langues Parlées</h4>
+<p id='f-size'>Français  Italien Anglais<hr></p>   
+<h4>Services</h4>
+<em>Sur demande, nous établissons avec vous un devis.</em>
+<p id='f-size'>
+    Anniversaire<br>
+    Apéros d'entreprise<br>
+    Baptême<br>
+    Mariage<br>
+<hr></p>
+{% endblock %}

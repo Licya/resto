@@ -1,1 +1,23 @@
 {# app/Resources/views/default/nous-contacter.html.twig #}
+{% extends '::trattoriaBase.html.twig' %}
+{% block pageTitle %}<h1 id="title">Nous Contacter</h1>{% endblock %}
+{% block image %}contact{% endblock %}
+{% block navigation %}{{ include ('default/siteNavigation.html.twig') }}{% endblock %}    
+{% block content %}
+    <form>
+        <fieldset>
+            <legend>Nous vous répondrons dans les plus brefs délais</legend>
+            <div class='row'>
+                <div class='twelve columns'>
+                    <label for='emailInput' id='marg'>Your email</label>
+                    <input class='u-full-width' type='email' placeholder='monmail@mailboc.com' id='emailInput'> 
+                    <label for='message' id='marg'>Message</label>
+                    <textarea id='emailInput' class='u-full-width' placeholder='Je souhaiterais...'></textarea>
+                    <div id='marg'>Téléphone</div>
+                    027 321 21 15<br>
+                    <input class='button' type='submit' value='Envoyer' id='btn_send'>
+                </div>
+            </div> 
+        </fieldset>
+    </form>
+{% endblock %}

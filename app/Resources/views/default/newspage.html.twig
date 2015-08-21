@@ -1,9 +1,16 @@
 {# app/Resources/views/default/news.html.twig #}
-{% for News in news%}
-    {% if News.enable == 1%}
-        <h1>{{News.title|capitalize}}</h1>
-        <p>{{News.subtitle}}</p>
-        <p>{{News.description}}</p>
-    {% endif %}
-    <hr>
-{% endfor %}
+{% extends '::trattoriaBase.html.twig' %}
+{% block pageTitle %}<h1 id="title">News</h1>{% endblock %}
+{% block image %}news{% endblock %}
+{% block navigation %}{{ include ('default/siteNavigation.html.twig') }}{% endblock %}    
+{% block content %}
+    {% for News in news%}
+        {% if News.enable == 1%}
+            <h1>{{News.title|capitalize}}</h1>
+            <p>{{News.subtitle}}</p>
+            <p>{{News.description}}</p>
+        {% endif %}
+        <hr>
+    {% endfor %}
+{% endblock %}
+

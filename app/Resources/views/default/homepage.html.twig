@@ -1,17 +1,18 @@
 {# app/Resources/views/default/homepage.html.twig #}
-{% extends 'trattoriaBase.html.twig' %}
-{#% block navigation %}{{ include ('AppBundle:Default:siteNavigation.html.twig') }}{% endblock %}#}
+{% extends '::trattoriaBase.html.twig' %}
+{% block pageTitle %}<h1 id="title">Menu du Jour</h1>{% endblock %}
+{% block image %}home_image{% endblock %}
+{% block navigation %}{{ include ('default/siteNavigation.html.twig') }}{% endblock %}    
 {% block content %}
-    {% for Daily_menu in daily_menus %}
-        {% if Daily_menu.enable == 1%}
-            <h1>Menu {{ Daily_menu.title|capitalize }}</h1>
-            <p>{{Daily_menu.date|date("d/M/y")}}</p>
-            <p>{{Daily_menu.price}} CHF</p>
-            {% for proposition in Daily_menu.propositions %}
+    {% for daily_menu in daily_menus %}
+        {% if daily_menu.enable == 1%}
+            <h1>Menu {{ daily_menu.title|capitalize }}</h1>
+            <p>{{daily_menu.date|date("d/M/y")}}</p>
+            {% for proposition in daily_menu.propositions %}
                 <h2>{{ proposition.title }}</h2>
                 <p>{{ proposition.product.name }}</p><br> 
             {% endfor %}
-        {%endif%}
-        <hr>
+            <p>{{daily_menu.price}} CHF</p>
+        {% endif %}
     {% endfor %}
 {% endblock %}
