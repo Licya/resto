@@ -65,8 +65,9 @@ Content
     background-color: #000;     
     border-left: 10px solid #00cc66;
     border-right: 10px solid #00cc66;
-    max-width: 800px;
+    max-width: 850px;
     opacity: 0.8;
+    margin-left: 0;
 }
 
 body{
@@ -74,7 +75,49 @@ body{
 }
 
 .home_image{
-    background: transparent url(../images/fotolia_78320771.jpg) 0 0 no-repeat fixed; 
+    background: transparent url(../images/pasta_1.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.carte{
+    background: transparent url(../images/hamburger.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.infos{
+    background: transparent url(../images/tiramisu.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.news{
+    background: transparent url(../images/pizzette.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.contact{
+    background: transparent url(../images/cafe.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.trouver{
+    background: transparent url(../images/spritz.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.partenaires{
+    background: transparent url(../images/hamburger.jpg) 0 0 no-repeat fixed; 
+    text-align: center;
+    background-size: cover;
+}
+
+.trattoria{
+    background: transparent url(../images/locale.jpg) 0 0 no-repeat fixed; 
     text-align: center;
     background-size: cover;
 }
@@ -105,3 +148,38 @@ header
 
 #text_center{ text-align: center;}
 
+/*
+Table
+-------------------------------------------------------------------------------*/
+#border{ border-bottom: none; }
+
+#tbl { 
+    text-decoration: none;
+    color: #fff;
+    margin-left: 100px;
+}
+
+#tbl:hover{ color: #00cc66; }
+
+#f-size{ font-size: 1.5em; }
+
+/*
+Nous trouver
+-------------------------------------------------------------------------------*/
+address{font-size: 1.5em;}
+
+#iframe{ padding-top: 50px; }
+
+/*
+Nous trouver
+-------------------------------------------------------------------------------*/
+#emailInput{ color:black; }
+
+#btn_send{
+    margin-top: 15px;
+    color:white;
+}
+
+#btn_send:hover{ background-color: #00cc66;}
+
+#marg{ margin-top: 15px; }
