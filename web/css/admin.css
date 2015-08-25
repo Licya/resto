@@ -38,7 +38,14 @@ and open the template in the editor.
     font-style: italic;
 }
 
-a{text-decoration: none;}
+a{
+    text-decoration: none;
+    color:black;
+}
+
+li{
+    list-style-type: none;
+}
 
 #li_nav{
     list-style-type: none;
