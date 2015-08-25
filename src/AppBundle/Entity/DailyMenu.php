@@ -52,7 +52,7 @@ class DailyMenu
     /**
      * @var Proposition[]
      * 
-     * @ORM\OneToMany(targetEntity="Proposition", mappedBy="dailyMenu")
+     * @ORM\OneToMany(targetEntity="Proposition", mappedBy="dailyMenu", cascade={"persist", "remove"})
      */
     private $propositions;
     
