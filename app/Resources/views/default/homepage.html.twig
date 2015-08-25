@@ -10,7 +10,7 @@
             <p>{{daily_menu.date|date("d/M/y")}}</p>
             {% for proposition in daily_menu.propositions %}
                 <h2>{{ proposition.title }}</h2>
-                <p>{{ proposition.product.name }}</p><br> 
+                <p>{{ proposition.product.name|default('-') }}</p><br>
             {% endfor %}
             <p>{{daily_menu.price}} CHF</p>
         {% endif %}
