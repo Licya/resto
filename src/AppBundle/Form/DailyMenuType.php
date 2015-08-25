@@ -25,8 +25,10 @@ class DailyMenuType extends AbstractType
                 ->add('enable', 'checkbox', array(
                     'required' => false,
                 ))
-                ->add('propositions', 'text', array(
-                    'required' => false,
+                ->add('propositions', 'collection', array(
+                    'type' => new PropositionType(),
+                    'allow_add' => true,
+                    'allow_delete' => true,
                 ))
         ;
     }

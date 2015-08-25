@@ -61,6 +61,7 @@ class DailyMenuController extends Controller
     public function addAction(Request $request)
     {
         $dailyMenu = new DailyMenu();
+        
         $form = $this->createForm(new DailyMenuType(), $dailyMenu);
         $form->handleRequest($request);
 

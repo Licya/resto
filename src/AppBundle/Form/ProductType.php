@@ -23,11 +23,11 @@ class ProductType extends AbstractType
             ->add('enable', 'checkbox', array(
                 'required' => false,
             ))
-            ->add('proposition', 'text', array(
+
+            ->add('category', 'entity', array(
                 'required' => false,
-            ))
-            ->add('category', 'text', array(
-                'required' => false
+                'class' => 'AppBundle:Category',
+                'property' => 'name',
             ))
         ;
     }

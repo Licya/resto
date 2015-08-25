@@ -4,7 +4,51 @@
 {% block pagetitle %}Ajouter un {{itemName}}{% endblock %}
 {% block bodyContent %}
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" name="Add">
+    {{ form_widget(form) }}
+    <input type="submit" name="Add">
     {{ form_end(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script>
+        var $collectionHolder = $('div#appbundle_dailymenu_propositions');
+
+        var $addPropositionLink = $('<a href="#" class="button add_proposiiton">Ajouter une Proposition</a>');
+        var $newLinkLi = $('<li></li>').append($addPropositionLink);
+        $collectionHolder.data('index', $collectionHolder.find(':input').length);
+        
+        jQuery(document).ready(function () {
+            $collectionHolder.append($newLinkLi);
+
+            $addPropositionLink.on('click', function (e) {
+                e.preventDefault();
+
+                addPropositionForm($collectionHolder, $newLinkLi);
+            });
+
+        });
+
+        function addPropositionForm($collectionHolder, $newLinkLi) {
+            var prototype = $collectionHolder.attr('data-prototype');
+
+            var index = $collectionHolder.data('index');
+            var newForm = prototype
+                    .replace(/__name__label__/g, index)
+                    .replace(/__name__/g, index);
+            $collectionHolder.data('index', index + 1);
+
+            var $newFormLi = $('<li></li>').append(newForm);
+
+            $newFormLi.append('<a href="#" class="button remove-tag">Supprimer la Proposition</a><hr>');
+
+            $newLinkLi.before($newFormLi);
+
+            $('.remove-tag').click(function (e) {
+                e.preventDefault();
+                $(this).parent().remove();
+                return false;
+            });
+        }
+    </script>
 {% endblock %}

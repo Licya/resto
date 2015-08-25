@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PropositionType extends AbstractType
 {
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
@@ -15,10 +16,15 @@ class PropositionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', 'text')
+                ->add('title', 'text')
+                ->add('product', 'entity', array(
+                    'class' => 'AppBundle:Product',
+                    'property' => 'name',
+                    'group_by' => 'category.name',
+                ))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -36,4 +42,5 @@ class PropositionType extends AbstractType
     {
         return 'appbundle_proposition';
     }
+
 }
