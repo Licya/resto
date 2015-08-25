@@ -12,7 +12,7 @@ admin_product:
 
 admin_loggin:
     resource: "@AdminLogginBundle/Resources/config/routing.yml"
-    prefix:   /loggin
+    prefix:   /login
 
 admin_partner:
     resource: "@AdminPartnerBundle/Resources/config/routing.yml"
