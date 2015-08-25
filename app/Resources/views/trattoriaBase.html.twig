@@ -2,16 +2,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {% block menta %}
+        {% block meta %}
             <meta http-quiv="Content-Type" content=" text/html; charset=UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1">
         {% endblock %}
         <title>{% block title %}{% endblock %}</title>
         {% block stylesheets %}
-            <link href="{{ asset('/css/trattoria.css')}}" type="text/css" rel="stylesheet"/>
-            <link href="{{ asset('/css/skeleton.css')}}" type="text/css" rel="stylesheet"/>
-            <link href="{{ asset('/css/normalize.css')}}" type="text/css" rel="stylesheet"/>
-        {% endblock %}
+            <link href="{{ asset('css/trattoria.css')}}" type="text/css" rel="stylesheet"/>
+            <link href="{{ asset('css/skeleton.css')}}" type="text/css" rel="stylesheet"/>
+            <link href="{{ asset('css/normalize.css')}}" type="text/css" rel="stylesheet"/>
+        {% endblock %}s
     </head>
     <body>       
         <div class="{% block image %} {% endblock %}">
@@ -19,7 +19,9 @@
             {% block header %}{% endblock %}
                 <div class="row">
                     <div class="four columns">
-                        <img src="../../../web/images/logo.jpg" alt="logo" width=""/>
+                        <a href="{{ path('homepage') }}">
+                            <img id="logo" src="{{ asset('images/logo.jpg') }}" alt="logo"/>
+                        </a>
                         {% block navigation %}{% endblock %}
                     </div>
                     <div class="eight columns">
