@@ -122,55 +122,6 @@ body{
     background-size: cover;
 }
 
-.entrees{
-    background: transparent url(../images/insalata.jpg) 0 0 no-repeat fixed; 
-    text-align: center;
-    background-size: cover;
-}
-
-.pates{
-    background: transparent url(../images/pasta_1.jpg) 0 0 no-repeat fixed; 
-    text-align: center;
-    background-size: cover;
-}
-
-.viandes{
-    background: transparent url(../images/carne.jpg) 0 0 no-repeat fixed; 
-    text-align: center;
-    background-size: cover;
-}
-
-.poissons{
-    background: transparent url(../images/pesce.jpg) 0 0 no-repeat fixed; 
-    text-align: center;
-    background-size: cover;
-}
-
-.hamburgers{
-    background: transparent url(../images/panino.jpg) 0 0 no-repeat fixed; 
-    text-align: center;
-    background-size: cover;
-}
-
-.pizza{
-    background: transparent url(../images/pizza.jpg) 0 0 no-repeat fixed; 
-    text-align: center;
-    background-size: cover;
-}
-
-.dessert{
-    background: transparent url(../images/dolce.jpg) 0 0 no-repeat fixed; 
-    text-align: center;
-    background-size: cover;
-}
-
-.dejeuner{
-    background: transparent url(../images/cake.jpg) 0 0 no-repeat fixed; 
-    text-align: center;
-    background-size: cover;
-}
-
-
 #content{}
 
 /*
@@ -188,29 +139,49 @@ header
 }
 
 #logo{
-    //padding-left: 25px;
-    width: 100%;
-    //margin: auto; pour mobile
+    width: 50%;
 }
 
 #header{}
 
-#text_center{ text-align: center;}
+#text_center{ text-align: center; }
+
+#text_left{ text-align: left; }
 
 /*
-Table
+Tables
 -------------------------------------------------------------------------------*/
-#border{ border-bottom: none; }
-
-#tbl { 
+.tbl{ 
     text-decoration: none;
     color: #fff;
     margin-left: 100px;
+    border-bottom: none;
 }
 
-#tbl:hover{ color: #00cc66; }
+.tbl:hover{ color: #00cc66; }
 
-#f-size{ font-size: 1.5em; }
+.partner-name{ 
+    font-size: 1.5em; 
+    border-bottom: none;
+}
+
+.text-product{
+    border-bottom: none;
+    font-size: 1.2em;
+}
+
+.text-description{ 
+    font-style: italic; 
+    text-align: left;
+    border-bottom: none;
+    padding-bottom: 10px;
+    color: #999999;
+}
+
+.text-price{
+    text-align: right;
+    border-bottom: none;
+}
 
 /*
 Nous trouver
@@ -232,3 +203,7 @@ Nous trouver
 #btn_send:hover{ background-color: #00cc66;}
 
 #marg{ margin-top: 15px; }
+
+/*
+proposition
+-------------------------------------------------------------------------------*/
