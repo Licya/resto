@@ -2,19 +2,25 @@
 {% extends '::trattoriaBase.html.twig' %}
 {% block pageTitle %}<h1 id="title">La Carte</h1>{% endblock %}
 {% block image %}carte{% endblock %}
-{% block navigation %}{{ include ('default/CarteNavigation.html.twig') }}{% endblock %}    
+{% block navigation %}{{ include ('default/siteNavigation.html.twig') }}{% endblock %}    
 {% block content %}
-{% for category in categories %}
-    <h1>{{ category.name|upper }}</h1>
-    {% for product in category.products %}
-        {% if product.enable == 1 %}
-            <h1>{{ product.name|capitalize }}</h1>
-            <p>{{ product.description }}</p>
-            <p>Prix :{{ product.mainPrice }} CHF</p>
-            <p>Prix deuxième: {{ product.secondPrice }} CHF</p>       
-            <p>Catégorie: {{ product.category.name }}</p>
-        {% endif %}
-        <hr>
+    {% for category in categories %}
+        <h1>{{ category.name|upper }}</h1>
+        <table class="u-full-width">
+            <tbody>
+                {% for product in category.products %}
+                    {% if product.enable == 1 %}
+                        <tr>
+                            <td class="text-product">{{ product.name|capitalize }}</td>
+                            <td class="text-price">{{ product.mainPrice }} CHF</td>
+                        </tr>
+                        <tr>
+                            <td class="text-description">{{ product.description }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %} 
+            </tbody>
+        </table>
+        ***
     {% endfor %}
-{% endfor %}
 {% endblock %}
