@@ -2,13 +2,13 @@
 {% block navigation %}
     <div id="nav">
         <ul>                         
-            <li><a href="http://localhost/resto/web/app_dev.php/newspage">LES NEWS<hr></a></li>
-            <li><a href="http://localhost/resto/web/app_dev.php/entrees">LA CARTE<hr></a></li> 
-            <li><a href="http://localhost/resto/web/app_dev.php/trattoria">LA TRATTORIA<hr></a></li> 
-            <li><a href="http://localhost/resto/web/app_dev.php/partenaires">PARTENAIRES<hr></a></li> 
-            <li><a href="http://localhost/resto/web/app_dev.php/infos-pratiques">INFOS PRATIQUES<hr></a></li> 
-            <li><a href="http://localhost/resto/web/app_dev.php/nous-trouver">NOUS TROUVER<hr></a></li> 
-            <li><a href="http://localhost/resto/web/app_dev.php/nous-contacter">NOUS CONTACTER<hr></a></li> 
+            <li><a href="{{ path('newspage') }}">LES NEWS<hr></a></li>
+            <li><a href="{{ path('carte') }}">LA CARTE<hr></a></li> 
+            <li><a href="{{ path('trattoria') }}">LA TRATTORIA<hr></a></li> 
+            <li><a href="{{ path('partenaires') }}">PARTENAIRES<hr></a></li> 
+            <li><a href="{{ path('infos-pratiques') }}">INFOS PRATIQUES<hr></a></li> 
+            <li><a href="{{ path('nous-trouver') }}">NOUS TROUVER<hr></a></li> 
+            <li><a href="{{ path('nous-contacter') }}">NOUS CONTACTER<hr></a></li> 
         </ul>
     </div>
 {% endblock %}
