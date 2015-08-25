@@ -207,3 +207,12 @@ Nous trouver
 /*
 Trattoria
 -------------------------------------------------------------------------------*/
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover{
+    font-weight: bold;
+    color: #00cc66;
+}
