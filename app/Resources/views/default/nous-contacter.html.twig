@@ -10,7 +10,7 @@
             {{ form_row(form.subject, { attr: {style: "color: black;"} }) }}
             {{ form_row(form.email, { attr: {style: "color: black;"} }) }}
             {{ form_row(form.message, { attr: {style: "color: black;"} }) }}
-            <input type="submit" name="Envoyer" >
+            <input id="btn_send" type="submit" name="Envoyer" value="Envoyer">
         {{ form_end(form) }}
     </div> 
 {% endblock %}
