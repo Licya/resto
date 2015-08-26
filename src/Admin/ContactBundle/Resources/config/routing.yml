@@ -1,3 +1,3 @@
-admin_contact_homepage:
+admin_contact_home:
     path:     /
-    defaults: { _controller: AdminContactBundle:Default:index }
+    defaults: { _controller: AdminContactBundle:Contact:index }
