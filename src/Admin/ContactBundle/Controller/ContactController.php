@@ -19,14 +19,41 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-
 class ContactController extends Controller
 {
 
-    public function indexAction()
-    {
+    public function indexAction(Request $request)
+    { {
+            $form = $this->createFormBuilder()
+                    ->add('subject', 'text')
+                    //->add('email', 'email')
+                    ->add('message', 'textarea')
+                    //->add('copyWanted', 'checkbox')
+                    ->getForm();
 
-        return $this->render('AdminContactBundle:Contact:index.html.twig');
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $data = $form->getData();
+                $message = \Swift_Message::newInstance()
+                        ->setSubject($data['subject'])
+                        ->setFrom('info@trattorie-italia.ch')
+                        ->setTo('dev@delicya.ch')
+                        //->setCc($data['email'])    
+                        ->setBody(/*'email: '.$data['email'].*/"\n message: ".$data['message'])
+                // setBody avec un template rendu (cf doc)  
+                ;
+
+                $this->get('mailer')->send($message);
+
+                $this->addFlash('success', 'Le mail a bien été envoyé.');
+                // reset des data du form
+            }
+
+            return $this->render('AdminContactBundle:Contact:index.html.twig', array(
+                        'form' => $form->createView(),
+            ));
+        }
     }
 
 }
