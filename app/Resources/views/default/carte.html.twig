@@ -11,7 +11,7 @@
                 {% for product in category.products %}
                     {% if product.enable == 1 %}
                         <tr>
-                            <td class="text-product">{{ product.name|capitalize }}</td>
+                            <td class="text-product">{{ product.name }}</td>
                             <td class="text-price">{{ product.mainPrice }} CHF</td>
                         </tr>
                         <tr>

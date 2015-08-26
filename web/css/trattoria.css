@@ -7,6 +7,12 @@ and open the template in the editor.
     Created on : 20 août 2015, 10:02:19
     Author     : Licya
 */
+
+/*
+Font
+-------------------------------------------------------------------------------*/
+h1, h2, h3, h4, h5{font-family: 'Courgette', cursive;}
+
 /*
 Navigation
 ------------------------------------------------------------------------------*/
