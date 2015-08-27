@@ -17,14 +17,14 @@ h1, h2, h3, h4, h5{font-family: 'Courgette', cursive;}
 Navigation
 ------------------------------------------------------------------------------*/
 
-#nav ul{
+.nav ul{
     margin: 0;
     padding: 40px 0 0 0;
 }
 
-#nav li{ list-style-type: none; }
+.nav li{ list-style-type: none; }
 
-#nav a{
+.nav a{
     display: block;
     line-height: 15px;
     text-align: left;
@@ -36,7 +36,7 @@ Navigation
     padding-left: 25px;
 }
 
-#nav a:hover{
+.nav a:hover{
     opacity: 0.9;
     font-weight: bold;
     color: #00b74b;

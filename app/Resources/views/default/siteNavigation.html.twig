@@ -1,6 +1,7 @@
 {# app/Resources/views/default/siteNavigtion.html.twig #}
 {% block navigation %}
-    <div id="nav">
+    <a href="#menu" id="toggle"><span></span></a>
+    <div class="nav" id="menu">
         <ul>                         
             <li><a href="{{ path('newspage') }}">LES NEWS<hr></a></li>
             <li><a href="{{ path('carte') }}">LA CARTE<hr></a></li> 
