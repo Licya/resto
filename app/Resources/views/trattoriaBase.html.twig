@@ -12,29 +12,37 @@
             <link href="{{ asset('css/skeleton.css')}}" type="text/css" rel="stylesheet"/>
             <link href="{{ asset('css/normalize.css')}}" type="text/css" rel="stylesheet"/>
             <link href="{{ asset('http://fonts.googleapis.com/css?family=Courgette')}}" rel='stylesheet' type='text/css'>
-        {% endblock %}s
+        {% endblock %}
     </head>
     <body>       
         <div class="{% block image %} {% endblock %}">
             <div class="container" id="container">
-            {% block header %}{% endblock %}
-                <div class="row">
-                    <div class="four columns">
-                        <a href="{{ path('homepage') }}">
-                            <img id="logo" src="{{ asset('images/logo.jpg') }}" alt="logo"/>
-                        </a>
-                        {% block navigation %}{% endblock %}
+                {% block header %}
+                    <div class="row">
+                        <div class="four columns">
+                            <img id="logo" src="{{ asset('images/logo.png') }}" alt="logo"/>
+                        </div>
+                        <div class="eight columns" id="text_center">
                     </div>
-                    <div class="eight columns">
-                        {% block pageTitle %}{% endblock %}
-                        {% block content %}{% endblock %}
-                     </div>
                 </div>
-                <div id="footer">
-                    <hr>
-                    {% block footer %}&copy;Trattoria d'Italia-2015{% endblock %}
-                </div>
-          </div>
-        </div>
-    </body>
+                &nbsp;
+            {% endblock %}
+            <div class="row">
+                <div class="four columns">
+                    <a href="{{ path('homepage') }}">
+                    </a>
+                {% block navigation %}{% endblock %}
+            </div>
+            <div class="eight columns">
+            {% block pageTitle %}{% endblock %}
+        {% block content %}{% endblock %}
+    </div>
+</div>
+<div id="footer">
+    ____<br>
+    {% block footer %}&copy;Trattoria d'Italia-2015{% endblock %}
+</div>
+</div>
+</div>
+</body>
 </html>
