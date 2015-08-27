@@ -19,7 +19,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="four columns" id="first_column_header">
-                            <a  id="a_nav" href="{{ path('admin_loggin_home') }}">
+                            <a  id="a_nav">
                                 <img id="logo" src="{{ asset('images/logoBackend.png') }}" alt="logo"/>
                             </a>
                         </div>
@@ -38,7 +38,7 @@
                 <div class="row">
                     <div class="four columns">
                         <div id="sidbar">
-                            <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_loggin_home') }}">Home</a>
+                            {#<a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_loggin_home') }}">Home</a>#}
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_category_home') }}">Categories</a>
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_daily_menu_home') }}">Menu du Jour</a>
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_news_home') }}">News</a>
