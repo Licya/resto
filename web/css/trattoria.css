@@ -39,7 +39,7 @@ Navigation
 #nav a:hover{
     opacity: 0.9;
     font-weight: bold;
-    color: #00cc66;
+    color: #00b74b;
 }
 
 /*
@@ -69,11 +69,12 @@ Content
 #container{
     color : white;
     background-color: #000;     
-    border-left: 10px solid #00cc66;
-    border-right: 10px solid #00cc66;
-    max-width: 850px;
+    border-left: 10px solid #00b74b;
+    border-right: 10px solid #00b74b;
+    max-width: 900px;
     opacity: 0.8;
     margin-left: 0;
+    padding-right: 15px;
 }
 
 body{
@@ -145,10 +146,10 @@ header
 }
 
 #logo{
-    width: 50%;
+    width: 120%;
+    padding-top: 7px;
+    padding-left: 15px;
 }
-
-#header{}
 
 #text_center{ text-align: center; }
 
@@ -164,7 +165,7 @@ Tables
     border-bottom: none;
 }
 
-.tbl:hover{ color: #00cc66; }
+.tbl:hover{ color: #00b74b; }
 
 .partner-name{ 
     font-size: 1.5em; 
@@ -206,7 +207,7 @@ Nous trouver
     color:white;
 }
 
-#btn_send:hover{ background-color: #00cc66;}
+#btn_send:hover{ background-color: #00b74b;}
 
 #marg{ margin-top: 15px; }
 
@@ -220,5 +221,10 @@ a{
 
 a:hover{
     font-weight: bold;
-    color: #00cc66;
+    color: #00b74b;
+}
+
+#author{
+    text-align: right;
+    color: #00b74b;
 }
