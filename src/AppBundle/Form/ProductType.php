@@ -17,9 +17,11 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name', 'text')
-            ->add('description', 'textarea')
+            ->add('description', 'textarea', array(
+                    'required'=> false))
             ->add('mainPrice', 'number')
-            ->add('secondPrice', 'number')
+            ->add('secondPrice', 'number', array(
+                    'required'=> false))
             ->add('enable', 'checkbox', array(
                 'required' => false,
             ))
