@@ -40,8 +40,31 @@
     </div>
 </div>
 <div id="footer">
-    ____<br>
-    {% block footer %}&copy;Trattoria d'Italia-2015{% endblock %}
+    <hr>
+    {% block footer %}
+        <div class="row">
+            <div class="four columns">
+                <h6 class='footer_title'>Horaires</h6>
+                Lundi-Jeudi 8h00 - 18h30<br>
+                vendredi 8h00 - 20h00<br>
+                Cuisine 11h00 - 14h00<br>
+                Dimanche et Jours fériés fermé              
+            </div>
+            <div class="four columns">
+                <h6 class='footer_title'>Nous Contacter</h6>
+                Tél : 027 231 21 15<br>
+                <a href="{{ path('nous-contacter') }}">info@trattorie-italia.ch</a>
+            </div>
+            <div class="four columns">
+                <h6 class='footer_title'>Adresse</h6>
+                    Trattorie d'Italia<br>
+                    Centre commercial Coop<br>
+                    Rue de l'Industrie 16<br>
+                    1950 Sion<br>
+            </div>
+        </div>
+        &copy;Trattoria d'Italia-2015
+    {% endblock %}
 </div>
 </div>
 </div>

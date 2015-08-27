@@ -11,7 +11,7 @@ and open the template in the editor.
 /*
 Font
 -------------------------------------------------------------------------------*/
-h1, h2, h3, h4, h5{font-family: 'Courgette', cursive;}
+h1, h2, h3, h4, h5, h6{font-family: 'Courgette', cursive;}
 
 /*
 Navigation
@@ -135,6 +135,7 @@ body{
 footer
 -------------------------------------------------------------------------------*/
 #footer{ color: white; }
+.footer_title{color: #ef0000;}
 
 /*
 header
