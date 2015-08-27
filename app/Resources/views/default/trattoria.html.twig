@@ -1,19 +1,21 @@
 {# app/Resources/views/default/trattoria.html.twig #}
 {% extends '::trattoriaBase.html.twig' %}
-{% block pageTitle %}<h1 id="title">Bienvenu aux Trattorie d'Italia!</h1>{% endblock %}
+{% block pageTitle %}<h1 id="title">Bienvenu!</h1>{% endblock %}
 {% block image %}trattoria{% endblock %}
 {% block navigation %}{{ include ('default/siteNavigation.html.twig') }}{% endblock %}    
 {% block content %}
-        <p>Un restaurant unique.</p>
-        <p>Un lieu qui vous reçoit chaleureusement et qui vous confère de suite un petit goût de vacances... en Italie.</p>
+    <h5>" Un homme ne peut bien penser, bien aimer, bien dormir, s'il n'a pas bien mangé! "</h5>
+    <p id="author">Virginia Woolf</p>
+    <p>Un restaurant unique.</p>
+    <p>Un lieu qui vous reçoit chaleureusement et qui vous confère de suite un petit goût de vacances... en Italie.</p>
 
-        <p>Du lundi au vendredi, nous vous proposons 2 <a href="{{ path('homepage') }}">Menus du Jour</a>.</p>
+    <p>Du lundi au vendredi, nous vous proposons 2 <a href="{{ path('homepage') }}">Menus du Jour</a>.</p>
 
-        <p>Notre désire est de vous offrir notre expérience et nos recettes pour enchanter vos palets avec nos ingrédients frais de grande qualité.</p>
+    <p>Notre désire est de vous offrir notre expérience et nos recettes pour enchanter vos palets avec nos ingrédients frais de grande qualité.</p>
 
-        <p>Ici, nous partageons toute notre bonne humeure, nos bons plats, notre bon vin ainsi que nos bonnes idées qui suivent les traditions culinaires de nos fondateurs et de leur famille originaire d'Italie.</p>
+    <p>Ici, nous partageons toute notre bonne humeure, nos bons plats, notre bon vin ainsi que nos bonnes idées qui suivent les traditions culinaires de nos fondateurs et de leur famille originaire d'Italie.</p>
 
-        <p><a href="{{ path('carte') }}">Notre carte</a> variée saura vous satisfaire, il y en a pour tous les goûts, de quoi vous mettre <em>"l'acqualina in bocca"</em> (l'eau à la bouche).</p>
+    <p><a href="{{ path('carte') }}">Notre carte</a> variée saura vous satisfaire, il y en a pour tous les goûts, de quoi vous mettre <em>"l'acqualina in bocca"</em> (l'eau à la bouche).</p>
 
-        <p>Passez boire un café à l'italienne : <em>"un vero espresso"</em>.</p>
+    <p>Passez boire un café à l'italienne : <em>"un vero espresso"</em>.</p>
 {% endblock %}
