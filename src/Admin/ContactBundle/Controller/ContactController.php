@@ -38,9 +38,8 @@ class ContactController extends Controller
                 $message = \Swift_Message::newInstance()
                         ->setSubject($data['subject'])
                         ->setFrom('info@trattorie-italia.ch')
-                        ->setTo('dev@delicya.ch')
-                        //->setCc($data['email'])    
-                        ->setBody(/*'email: '.$data['email'].*/"\n message: ".$data['message'])
+                        ->setTo('dev@delicya.ch')   
+                        ->setBody("\n message: ".$data['message'])
                 // setBody avec un template rendu (cf doc)  
                 ;
 
