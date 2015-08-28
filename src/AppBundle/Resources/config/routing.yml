@@ -42,3 +42,5 @@ admin:
     path: /admin
     defaults: { _controller: AppBundle:Default:admin }
     
+logout:
+    pattern: /logout

@@ -27,7 +27,7 @@
                             <a href="">&nbsp;</a>
                         </div>
                         <div class="four columns" id="center_align">
-                            <a id="a_header" href=""><h5>Deconnexion</h5></a>
+                            <a id="a_header" href="{{ path('logout') }}"><h5>Deconnexion</h5></a>
                         </div>
                     </div>
                 </div>
@@ -38,7 +38,6 @@
                 <div class="row">
                     <div class="four columns">
                         <div id="sidbar">
-                            {#<a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_loggin_home') }}">Home</a>#}
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_category_home') }}">Categories</a>
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_daily_menu_home') }}">Menu du Jour</a>
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_news_home') }}">News</a>

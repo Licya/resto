@@ -27,6 +27,9 @@ security:
             form_login:
                 login_path: /login
                 check_path: /login_check
+            logout:
+                path: /logout
+                target: /
             remember_me:
                 key: "%secret%"
                 lifetime: 31536000 # 1 year
