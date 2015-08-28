@@ -1,3 +1,0 @@
-admin_loggin_home:
-    path:     /
-    defaults: { _controller: AdminLogginBundle:Default:index }
