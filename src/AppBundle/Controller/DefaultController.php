@@ -96,4 +96,9 @@ class DefaultController extends Controller
             'form' => $form->createView(),
         ));
     }
+    
+     public function adminAction()
+    {
+        return $this->render('AdminLogginBundle:Login:login.html.twig');
+    }
 }
