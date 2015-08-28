@@ -1,34 +1,35 @@
 admin_proposition:
     resource: "@AdminPropositionBundle/Resources/config/routing.yml"
-    prefix:   /proposition
+    prefix:   /admin/proposition
 
 admin_contact:
     resource: "@AdminContactBundle/Resources/config/routing.yml"
-    prefix:   /contact
+    prefix:   /admin/contact
 
 admin_product:
     resource: "@AdminProductBundle/Resources/config/routing.yml"
-    prefix:   /product
+    prefix:   /admin/product
 
 admin_loggin:
     resource: "@AdminLogginBundle/Resources/config/routing.yml"
-    prefix:   /login
+    prefix:   /admin/loggin
 
 admin_partner:
     resource: "@AdminPartnerBundle/Resources/config/routing.yml"
-    prefix:   /partner
+    prefix:   /admin/partner
 
 admin_news:
     resource: "@AdminNewsBundle/Resources/config/routing.yml"
-    prefix:   /news
+    prefix:   /admin/news
 
 admin_daily_menu:
     resource: "@AdminDailyMenuBundle/Resources/config/routing.yml"
-    prefix:   /dailymenu
+    prefix:   /admin/dailymenu
 
 admin_category:
     resource: "@AdminCategoryBundle/Resources/config/routing.yml"
-    prefix:   /category
+    prefix:   /admin/category
    
 app:
     resource: "@AppBundle/Resources/config/routing.yml"
+    
