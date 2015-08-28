@@ -1,17 +1,24 @@
 {# app/Resources/views/security/login.html.twig #}
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+{% extends '::trattoriaBase.html.twig' %}
+{% block pageTitle %}<h1 id="title">Se Connecter</h1>{% endblock %}
+{% block image %}connect{% endblock %}
+{% block navigation %}{{ include ('default/siteNavigation.html.twig') }}{% endblock %} 
+{% block content %} 
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
-<form action="{{ path('login_check') }}" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+    <form action="{{ path('login_check') }}" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="_password" />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="_password" />
+        
+        <label for="remember_me">Keep me logged in</label>
+        <input type="checkbox" id="remember_me" name="_remember_me" checked /><br>
 
-    <input type="checkbox" id="remember_me" name="_remember_me" checked />
-    <label for="remember_me">Keep me logged in</label>
 
-    <input type="submit" name="login" />
-</form>
+        <input type="submit" name="login" value="login"/>
+    </form>
+{% endblock %}
