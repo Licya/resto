@@ -99,6 +99,6 @@ class DefaultController extends Controller
     
      public function adminAction()
     {
-        return $this->render('AdminLogginBundle:Login:login.html.twig');
+        return $this->render('default/admin.html.twig');
     }
 }

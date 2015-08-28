@@ -10,10 +10,6 @@ admin_product:
     resource: "@AdminProductBundle/Resources/config/routing.yml"
     prefix:   /admin/product
 
-admin_loggin:
-    resource: "@AdminLogginBundle/Resources/config/routing.yml"
-    prefix:   /admin/loggin
-
 admin_partner:
     resource: "@AdminPartnerBundle/Resources/config/routing.yml"
     prefix:   /admin/partner
