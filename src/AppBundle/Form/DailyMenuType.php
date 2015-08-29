@@ -17,7 +17,9 @@ class DailyMenuType extends AbstractType
     {
         $builder
                 ->add('title', 'text')
-                ->add('price', 'number')
+                ->add('price', 'money', array(
+                      'currency' => false
+                ))
                 ->add('date', 'date', array(
                     'widget' => 'single_text',
                     'format' => 'dd-MM-yyyy'

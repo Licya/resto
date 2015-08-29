@@ -8,32 +8,36 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class ProductType extends AbstractType
 {
+
     /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
-    
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text')
-            ->add('description', 'textarea', array(
-                    'required'=> false))
-            ->add('mainPrice', 'number')
-            ->add('secondPrice', 'number', array(
-                    'required'=> false))
-            ->add('enable', 'checkbox', array(
-                'required' => false,
-            ))
-
-            ->add('category', 'entity', array(
-                'required' => false,
-                'class' => 'AppBundle:Category',
-                'property' => 'name',
-            ))
+        ->add('name', 'text')
+        ->add('description', 'textarea', array(
+              'required' => false
+        ))
+        ->add('mainPrice', 'money', array(
+              'currency' => false
+        ))
+        ->add('secondPrice', 'money', array(
+              'required' => false,
+              'currency' => false
+        ))
+        ->add('enable', 'checkbox', array(
+              'required' => false,
+        ))
+        ->add('category', 'entity', array(
+              'required' => false,
+              'class' => 'AppBundle:Category',
+              'property' => 'name',
+        ))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
@@ -51,4 +55,5 @@ class ProductType extends AbstractType
     {
         return 'appbundle_product';
     }
+
 }
