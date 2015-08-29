@@ -2,16 +2,14 @@
 {% extends '::base.html.twig' %}
 {% set itemName = 'Menu du Jour' %}
 {% block title %} Liste des {{itemName}}s {% endblock %}
-{% block pagetitle %}Liste {{itemName}}s {% endblock %}
+{% block pagetitle %}Liste des Menus du Jour {% endblock %}
 {% block bodyContent %} 
     <table class="u-full-width">
         <thead>
             <tr>
                 <th id="center_align">Titre</th>
                 <th id="center_align">Publiée</th>
-                <th id="center_align">Detail</th>
-                <th id="center_align">Modifier</th>
-                <th id="center_align">Supprimer</th>
+                <th id="center_align">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,21 +23,19 @@
                         {%endif%}
                         </td>
                         <td id="center_align">
-                            <a class="button" id="btn_nav_detail" href='{{ path('admin_daily_menu_detail', {'id': DailyMenu.id})}}'> 
-                                Voir détail
-                            </a>
-                        </td>
-                        <td id="center_align">
-                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_daily_menu_edit',
+                            <a href="{{ path('admin_daily_menu_edit',
                                             {'id' : DailyMenu.id},
                                             {'title': DailyMenu.title},
                                             {'price': DailyMenu.price},
                                             {'date' : DailyMenu.date},
                                             {'enable':DailyMenu.enable}
-                           )}}">Modifier</a>
-                        </td>
-                        <td id="center_align">
-                            <a class="button" id="btn_nav_delete" href="{{ path('admin_daily_menu_delete',{'id' : DailyMenu.id})}}">Supprimer</a>
+                           )}}">
+                            <img class="edit" src="{{ asset('images/edit.png') }}" alt="modifier"/>
+                            </a>
+                            &nbsp;
+                            <a href="{{ path('admin_daily_menu_delete',{'id' : DailyMenu.id})}}">
+                                <img class="delete" src="{{ asset('images/delete.png') }}" alt="supprimer"/>
+                            </a>
                         </td>
                     </tr>
                 </tbody>

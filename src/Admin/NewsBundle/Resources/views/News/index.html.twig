@@ -2,16 +2,14 @@
 {% extends '::base.html.twig' %}
 {% set itemName = 'News' %}
 {% block title %} Liste des {{itemName}} {% endblock %}
-{% block pagetitle %}Liste {{itemName}}{% endblock %}
+{% block pagetitle %}Liste des {{itemName}}{% endblock %}
 {% block bodyContent %} 
     <table class="u-full-width">
         <thead>
             <tr>
                 <th id="center_align">Titre</th>
                 <th id="center_align">Publiée</th>
-                <th id="center_align">Detail</th>
-                <th id="center_align">Modifier</th>
-                <th id="center_align">Supprimer</th>
+                <th id="center_align">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,24 +21,22 @@
                     {%else%}
                         non
                         {%endif%}
-                        </td>
-                        <td id="center_align">
-                            <a class="button" id="btn_nav_detail" href='{{ path('admin_news_detail', {'id': News.id})}}'> 
-                                Voir détail
-                            </a>
-                        </td>
-                        <td id="center_align">
-                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_news_edit',
+                    </td>
+                    <td id="center_align">
+                            <a href="{{ path('admin_news_edit',
                                             {'id' : News.id},
                                             {'title': News.title},
                                             {'subtitle': News.subtitle},
                                             {'description': News.description},
                                             {'enable':News.enable},
                                             {'sort':News.sort}
-                           )}}">Modifier</a>
-                        </td>
-                        <td id="center_align">
-                            <a class="button" id="btn_nav_delete" href="{{ path('admin_news_delete',{'id' : News.id})}}">Supprimer</a>
+                           )}}">
+                                <img class="edit" src="{{ asset('images/edit.png') }}" alt="modifier"/>
+                            </a>
+                            &nbsp;
+                            <a  href="{{ path('admin_news_delete',{'id' : News.id})}}">
+                                <img class="delete" src="{{ asset('images/delete.png') }}" alt="supprimer"/>
+                            </a>
                         </td>
                     </tr>
                 </tbody>

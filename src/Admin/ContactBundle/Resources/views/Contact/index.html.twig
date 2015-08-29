@@ -3,13 +3,14 @@
 {% set itemName = 'Contact Webmaster' %}
 {% block title %} Contact Webmaster {% endblock %}
 {% block pagetitle %}Contact Webmaster{% endblock %}
+{% block stylesheets %} {{ parent() }} {% endblock %}
 {% block bodyContent %}
-            <div class='row'>
-                {{ form_start(form) }}
-                {{ form_errors(form) }}
-                {{ form_row(form.subject, { attr: {style: "color: black;"} }) }}
-                {{ form_row(form.message, { attr: {style: "color: black;"} }) }}
-                <input id="btn_send" type="submit" name="Envoyer" value="Envoyer">
-                {{ form_end(form) }}
-            </div>
+    <div class='row u-max-full-width'>
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_row(form.subject, { attr: {style: "color: black; width:310px;"} }) }}
+            {{ form_row(form.message, { attr: {style: "color: black; width:310px;"} }) }}
+            <input id="btn_send" type="submit" name="Envoyer" value="Envoyer">
+            {{ form_end(form) }}
+    </div>
 {% endblock %}

@@ -9,9 +9,7 @@
             <tr>
                 <th id="center_align">Titre</th>
                 <th id="center_align">Publiée</th>
-                <th id="center_align">Detail</th>
-                <th id="center_align">Modifier</th>
-                <th id="center_align">Supprimer</th>
+                <th id="center_align">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -23,24 +21,22 @@
                     {%else%}
                         non
                         {%endif%}
-                        </td>
-                        <td id="center_align">
-                            <a class="button" id="btn_nav_detail" href='{{ path('admin_product_detail', {'id': Product.id})}}'> 
-                                Voir détail
-                            </a>
-                        </td>
-                        <td id="center_align">
-                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_product_edit',
+                    </td>
+                    <td id="center_align">
+                            <a href="{{ path('admin_product_edit',
                                             {'id' : Product.id},
                                             {'name': Product.name},                                           
                                             {'description': Product.description},
                                             {'mainPrice' : Product.mainPrice},
                                             {'secondPrice' : Product.secondPrice},
                                             {'enable':Product.enable}
-                           )}}">Modifier</a>
-                        </td>
-                        <td id="center_align">
-                            <a class="button" id="btn_nav_delete" href="{{ path('admin_product_delete',{'id' : Product.id})}}">Supprimer</a>
+                           )}}">
+                            <img class="edit" src="{{ asset('images/edit.png') }}" alt="modifier"/>
+                            </a>
+                            &nbsp;
+                            <a href="{{ path('admin_product_delete',{'id' : Product.id})}}">
+                            <img class="delete" src="{{ asset('images/delete.png') }}" alt="supprimer"/>
+                            </a>
                         </td>
                     </tr>
                 </tbody>

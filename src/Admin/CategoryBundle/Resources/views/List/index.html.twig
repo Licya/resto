@@ -9,9 +9,7 @@
             <tr>
                 <th id="center_align">Nom</th>
                 <th id="center_align">Publiée</th>
-                <th id="center_align">Detail</th>
-                <th id="center_align">Modifier</th>
-                {#<th id="center_align">Supprimer</th>#}
+                <th id="center_align">Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,27 +23,25 @@
                         {%endif%}
                         </td>
                         <td id="center_align">
-                            <a class="button" id="btn_nav_detail" href='{{ path('admin_category_detail', {'id': Category.id})}}'> 
-                                Voir détail
-                            </a>
-                        </td>
-                        <td id="center_align">
-                            <a  class="button" id="btn_nav_edit" href="{{ path('admin_category_edit',
+                            <a  href="{{ path('admin_category_edit',
                                             {'id' : Category.id},
                                             {'name': Category.name},
                                             {'description': Category.description},
                                             {'enable':Category.enable},
                                             {'sort':Category.sort}
-                           )}}">Modifier</a>
+                           )}}">
+                            <img class="edit" src="{{ asset('images/edit.png') }}" alt="modifier"/>
+                            </a>
+                            &nbsp;
+                            <a href="{{ path('admin_category_delete',{'id' : Category.id})}}">
+                                <img class="delete" src="{{ asset('images/delete.png') }}" alt="supprimer"/>
+                            </a>
                         </td>
-                        {#<td id="center_align">
-                            <a class="button" id="btn_nav_delete" href="{{ path('admin_category_delete',{'id' : Category.id})}}">Supprimer</a>
-                        </td>#}
                     </tr>
                 </tbody>
                 {% endfor %}
                 </table>
                 {% endblock %}
-                    {#{% block addBtn %} 
+                    {% block addBtn %} 
                         <a class="button" id="btn_add" href="{{ path('admin_category_add')}}">Ajouter une {{itemName}} </a>
-                    {% endblock %}#}
+                    {% endblock %}
