@@ -32,10 +32,7 @@ and open the template in the editor.
 
 /* Links
 ––––––––––––––––––––––––––––––––––––––––––––––––––*/
-.title{
-    text-align: center;
-    padding-top: 20px;
-}
+.title{padding-top: 20px;}
 
 #first_column_header{
     text-align: center;
