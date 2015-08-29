@@ -32,8 +32,12 @@ and open the template in the editor.
 
 /* Links
 ––––––––––––––––––––––––––––––––––––––––––––––––––*/
+.title{
+    text-align: center;
+    padding-top: 20px;
+}
+
 #first_column_header{
-    background-color: #009966;
     text-align: center;
     font-style: italic;
 }
@@ -69,6 +73,8 @@ li{
     text-decoration: none;
     font-weight: bold;
     color:white;
+    margin-top: auto;
+    padding: 25px;
 }
 
 #a_header:hover{ color: #009966; }
@@ -126,10 +132,13 @@ li{
     width: 300px;
 }
 
-#btn_nav:hover{ background-color: #009966; }
+#btn_nav:hover{ background-color: #00cc99; }
 
 tr:hover{color: #009966;}
 th{text-align: center;}
 
 #logo{width: 100%;}
-//#logo:hover{ opacity:0.8;}
+
+.delete{ width: 20px;}
+
+.edit{ width: 20px;}
