@@ -11,7 +11,7 @@
             <link href="{{ asset('css/skeleton.css')}}" type="text/css" rel="stylesheet"/>
             <link href="{{ asset('css/normalize.css')}}" type="text/css" rel="stylesheet"/>
             <link href="{{ asset('css/trattoria.css')}}" type="text/css" rel="stylesheet"/>
-            <link href="{{ asset('css/style.css')}}" type="text/css" rel="stylesheet"/>
+            {#<link href="{{ asset('css/style.css')}}" type="text/css" rel="stylesheet"/>#}
             <link href="{{ asset('http://fonts.googleapis.com/css?family=Courgette')}}" rel='stylesheet' type='text/css'>
         {% endblock %}
     </head>
@@ -21,7 +21,9 @@
                 {% block header %}
                     <div class="row">
                         <div class="four columns">
+                            <a href="{{ path('homepage') }}">
                             <img id="logo" src="{{ asset('images/logo.png') }}" alt="logo"/>
+                            </a>
                         </div>
                         <div class="eight columns" id="text_center">
                     </div>
@@ -53,7 +55,7 @@
             <div class="four columns">
                 <h6 class='footer_title'>Nous Contacter</h6>
                 Tél : 027 231 21 15<br>
-                <a href="{{ path('nous-contacter') }}">info@trattorie-italia.ch</a>
+                cinfo@trattorie-italia.ch</a>
             </div>
             <div class="four columns">
                 <h6 class='footer_title'>Adresse</h6>

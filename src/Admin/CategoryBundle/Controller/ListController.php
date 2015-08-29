@@ -64,24 +64,24 @@ class ListController extends Controller
      * addAction() function created for a future developement and management
      */
     
-//    public function addAction(Request $request)
-//    {
-//        $category = new Category();
-//        $form = $this->createForm(new CategoryType(), $category);
-//        $form->handleRequest($request);
-//
-//        if ($form->isValid()) {
-//
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($category);
-//            $em->flush();
-//
-//            $this->addFlash('success', 'Catégorie bien enregistrée.');
-//
-//            return $this->redirectToRoute('admin_category_detail', array('id' => $category->getId()));
-//        }
-//       return $this->render('AdminCategoryBundle:List:add.html.twig', array('form' => $form->createView(),));
-//    }
+    public function addAction(Request $request)
+    {
+        $category = new Category();
+        $form = $this->createForm(new CategoryType(), $category);
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($category);
+            $em->flush();
+
+            $this->addFlash('success', 'Catégorie bien enregistrée.');
+
+            return $this->redirectToRoute('admin_category_detail', array('id' => $category->getId()));
+        }
+       return $this->render('AdminCategoryBundle:List:add.html.twig', array('form' => $form->createView(),));
+    }
 
     public function editAction(Request $request, $id)
     {
@@ -109,23 +109,23 @@ class ListController extends Controller
      * the integrity constraint. In fact, Category entity possesses a foreign key
      * in Product entity (see diagram).
      */
-//    public function deleteAction($id)
-//    {
-//        $em = $this
-//                ->getDoctrine()
-//                ->getManager();
-//        $category = $em->getRepository('AppBundle:Category')->find($id);
-//
-//        if (!$category) {
-//
-//            $this->addFlash('error', 'Cette Catégorie n\'existe pas.');
-//            return $this->redirectToRoute('admin_category_home');
-//        }
-//
-//        $em->remove($category);
-//        $em->flush();
-//
-//        $this->addFlash('success', 'Catégorie bien supprimée.');
-//        return$this->redirectToRoute('admin_category_home');
-//    }
+    public function deleteAction($id)
+    {
+        $em = $this
+                ->getDoctrine()
+                ->getManager();
+        $category = $em->getRepository('AppBundle:Category')->find($id);
+
+        if (!$category) {
+
+            $this->addFlash('error', 'Cette Catégorie n\'existe pas.');
+            return $this->redirectToRoute('admin_category_home');
+        }
+
+        $em->remove($category);
+        $em->flush();
+
+        $this->addFlash('success', 'Catégorie bien supprimée.');
+        return$this->redirectToRoute('admin_category_home');
+    }
 }

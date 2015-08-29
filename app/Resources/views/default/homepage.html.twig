@@ -6,10 +6,10 @@
 {% block content %}
     {% for daily_menu in daily_menus %}
         {% if daily_menu.enable == 1%}
-            <h1>Menu {{ daily_menu.title|capitalize }}</h1>
+            <h3>{{ daily_menu.title|capitalize }}</h3>
             <p>{{daily_menu.date|date("d/M/y")}}</p>
             {% for proposition in daily_menu.propositions %}
-                <h2>{{ proposition.title }}</h2>
+                <h4>{{ proposition.title }}</h4>
                 <p>{{ proposition.product.name|default('-') }}</p><br>
             {% endfor %}
             <p>{{daily_menu.price}} CHF</p>
