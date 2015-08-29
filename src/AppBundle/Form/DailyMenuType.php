@@ -29,6 +29,7 @@ class DailyMenuType extends AbstractType
                     'type' => new PropositionType(),
                     'allow_add' => true,
                     'allow_delete' => true,
+                    'by_reference' => false,
                 ))
         ;
     }

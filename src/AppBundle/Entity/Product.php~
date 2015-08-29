@@ -66,14 +66,6 @@ class Product
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      */
     private $category;
-    
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->propositions = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -221,6 +213,13 @@ class Product
     public function getCategory()
     {
         return $this->category;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->propositions = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

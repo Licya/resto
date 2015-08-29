@@ -51,7 +51,7 @@ class Category
     private $sort;
 
     /**
-     * @ORM\OneToMany(targetEntity="Product", mappedBy="category")
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="category", cascade={"remove"})
      */
     private $products;
     
