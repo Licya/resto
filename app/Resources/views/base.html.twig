@@ -20,14 +20,16 @@
                     <div class="row">
                         <div class="four columns" id="first_column_header">
                             <a  id="a_nav">
-                                <img id="logo" src="{{ asset('images/logoBackend.png') }}" alt="logo"/>
+                                <a id="a_header" href="{{ path('admin') }}">
+                                    <img id="logo" src="{{ asset('images/logoBackend.png') }}" alt="logo"/>
+                                </a>
                             </a>
                         </div>
                         <div class="four columns" id="center_align">
                             <a href="">&nbsp;</a>
                         </div>
                         <div class="four columns" id="center_align">
-                            <a id="a_header" href="{{ path('logout') }}"><h5>Deconnexion</h5></a>
+                            <a id="a_header" href="{{ path('logout') }}"><h5>Déconnexion</h5></a>
                         </div>
                     </div>
                 </div>
@@ -43,7 +45,7 @@
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_news_home') }}">News</a>
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_partner_home') }}">Partenaires</sa>
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_product_home') }}">Produits</a>
-                            <a class="button u-max-full-width" id="btn_nav" href="{{path('admin_proposition_home')}}">Propositions</a>
+                            {#<a class="button u-max-full-width" id="btn_nav" href="{{path('admin_proposition_home')}}">Propositions</a>#}
                             <a class="button u-max-full-width" id="btn_nav" href="{{ path('admin_contact_home') }}">Contact Webmaster</a>
                         </div>
                     </div>
@@ -54,7 +56,7 @@
                                     <div class="alert alert-{{ type }}">{{ flash }}</div>
                                 {% endfor %}
                             {% endfor %}
-                            <h1>{% block pagetitle %} {% endblock %}</h1>
+                            <h3 class="title">{% block pagetitle %} {% endblock %}</h3>
                         {% block bodyContent %}{% endblock %}
                         <div id="center_align">{% block addBtn %}{% endblock %}</div>
                     </div> 
@@ -64,7 +66,7 @@
     {% endblock %}
     {% block footerContent %}
         <div id="footer">
-            <div id="center_align">Pour gronder votre Webmaster écrivez- lui un courriel ou composer le : 079/ 839.27.14</div> 
+            <div id="center_align"></div> 
         </div>
     {% endblock %}
     {% block javascripts %}
