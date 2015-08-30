@@ -1,37 +1,37 @@
 {# app/Resources/default/admin.html.twig #}
 {% extends '::base.html.twig' %}
-{% block pagetitle %}<h1 id="title">Bienvenu</h1>{% endblock %}   
+{% block pagetitle %}<h1>Bienvenu</h1>{% endblock %}   
 {% block bodyContent %}
-    <table class='u-max-full-width'>
-        <thead>
-            <tr>
-                <td><img class="img" src="{{ asset('images/category.png') }}" alt="categorie"/>&nbsp;Nombre de Categories</td>
-                <td><img class="img" src="{{ asset('images/product.png') }}" alt="produit"/>&nbsp;Nombre de Produits</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td id='center_align'>
-                    {% for Product in product%}                     
-                    {% endfor %}
-                    {{product|length}}
-                </td>
-                <td id='center_align'>
-                    {% for Category in category%}                     
-                    {% endfor %}
-                    {{category|length}}
-                </td>           
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="two columns">
+            <img class="category" src="{{ asset('images/category.png') }}" alt="categorie"/>
+        </div>
+        <div class="four columns">
+            Nombre de Categories<br>
+            {% for Category in category%}                     
+            {% endfor %}
+            {{category|length}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="two columns">
+            <img class="plat" src="{{ asset('images/plat.png') }}" alt="categorie"/>
+        </div>
+        <div class="four columns">
+            Nombre de Produits<br>
+            {% for Product in product%}                     
+            {% endfor %}
+            {{product|length}}
+        </div>
+    </div>    
     <div>
-        <h5>Menus du Jour publiés</h5>
-        <div class="row">
+        <h5 class="padding-top">Menus du Jour publiés</h5>
+        <div class="row padding-bottom">
             {% for daily_menu in daily_menus %}
                 {% if daily_menu.enable == 1%}
                     <div class="six columns">
-                        <legend><img class="img" src="{{ asset('images/dailyMenu.png') }}" alt="produit"/>&nbsp;{{daily_menu.title}}<br></legend>    
-                        {% for proposition in daily_menu.propositions %}
+                        <legend><img class="menu" src="{{ asset('images/menu.png') }}" alt="produit"/>&nbsp;{{daily_menu.title}}<br></legend>    
+                            {% for proposition in daily_menu.propositions %}
                             <b>{{ proposition.title }} :</b>
                             {{ proposition.product.name|default('-') }}<br>
                         {% endfor %}

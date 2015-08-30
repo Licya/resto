@@ -140,4 +140,17 @@ th{text-align: center;}
 
 .edit{width: 20px;}
 
-.img{width: 20px;}
+.category{
+    background-color: #00cc99;
+}
+
+.plat{
+    background-color: #ff9933;
+}
+
+.menu{
+    width: 20px;
+}
+
+.padding-top{padding-top: 10px;}
+.padding-bottom{padding-bottom: 10px;}
