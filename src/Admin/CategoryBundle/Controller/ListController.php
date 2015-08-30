@@ -128,4 +128,5 @@ class ListController extends Controller
         $this->addFlash('success', 'Catégorie bien supprimée.');
         return$this->redirectToRoute('admin_category_home');
     }
+    
 }

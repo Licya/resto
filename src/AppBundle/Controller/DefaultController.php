@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
 //use Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle;
 
 class DefaultController extends Controller
@@ -66,39 +67,48 @@ class DefaultController extends Controller
     public function nousContacterAction(Request $request)
     {
         $form = $this->createFormBuilder()
-            ->add('subject', 'text')
-            ->add('email', 'email')
-            ->add('message', 'textarea')
-            //->add('copyWanted', 'checkbox')
-            ->getForm();
-        
+                ->add('subject', 'text')
+                ->add('email', 'email')
+                ->add('message', 'textarea')
+                //->add('copyWanted', 'checkbox')
+                ->getForm();
+
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $message = \Swift_Message::newInstance()
-                ->setSubject($data['subject'])
-                ->setFrom('info@trattorie-italia.ch')
-                ->setTo('info@trattorie-italia.ch')
-                //->setCc($data['email'])    
-                ->setBody('email: '.$data['email']."\n message: ".$data['message'])
-                // setBody avec un template rendu (cf doc)  
+                    ->setSubject($data['subject'])
+                    ->setFrom('info@trattorie-italia.ch')
+                    ->setTo('info@trattorie-italia.ch')
+                    //->setCc($data['email'])    
+                    ->setBody('email: '.$data['email']."\n message: ".$data['message'])
+            // setBody avec un template rendu (cf doc)  
             ;
-            
+
             $this->get('mailer')->send($message);
-            
+
             // flashbag : votre message a bien été envoyé
-            
             // reset des data du form
         }
-        
+
         return $this->render('default/nous-contacter.html.twig', array(
-            'form' => $form->createView(),
+                    'form' => $form->createView(),
         ));
     }
-    
-     public function adminAction()
+
+    public function adminAction()
     {
-        return $this->render('default/admin.html.twig');
+        $category = $this->getDoctrine()
+                        ->getRepository('AppBundle:Category')->findAll();
+
+        $product = $this->getDoctrine()
+                        ->getRepository('AppBundle:Product')->findAll();
+
+        $dailyMenu = $this->getDoctrine()
+                        ->getRepository('AppBundle:DailyMenu')->findAll();
+        return $this->render('default/admin.html.twig', array('category' => $category,
+                             'product' => $product, 'daily_menus' => $dailyMenu));
     }
+
 }

@@ -7,7 +7,7 @@
     {% for daily_menu in daily_menus %}
         {% if daily_menu.enable == 1%}
             <h3>{{ daily_menu.title|capitalize }}</h3>
-            <p>{{daily_menu.date|date("d/M/y")}}</p>
+            {#<p>{{daily_menu.date|date("d/M/y")}}</p>#}
             {% for proposition in daily_menu.propositions %}
                 <h4>{{ proposition.title }}</h4>
                 <p>{{ proposition.product.name|default('-') }}</p><br>

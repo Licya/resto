@@ -55,6 +55,7 @@ class DailyMenuController extends Controller
                     'id' => $id,
                     'date' => $date,
                     'enable' => $enable,
+            'daily_menu'=>$dailyMenu,
         ));
     }
 

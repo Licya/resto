@@ -2,4 +2,43 @@
 {% extends '::base.html.twig' %}
 {% block pagetitle %}<h1 id="title">Bienvenu</h1>{% endblock %}   
 {% block bodyContent %}
+    <table class='u-max-full-width'>
+        <thead>
+            <tr>
+                <td><img class="img" src="{{ asset('images/category.png') }}" alt="categorie"/>&nbsp;Nombre de Categories</td>
+                <td><img class="img" src="{{ asset('images/product.png') }}" alt="produit"/>&nbsp;Nombre de Produits</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id='center_align'>
+                    {% for Product in product%}                     
+                    {% endfor %}
+                    {{product|length}}
+                </td>
+                <td id='center_align'>
+                    {% for Category in category%}                     
+                    {% endfor %}
+                    {{category|length}}
+                </td>           
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <h5>Menus du Jour publiés</h5>
+        <div class="row">
+            {% for daily_menu in daily_menus %}
+                {% if daily_menu.enable == 1%}
+                    <div class="six columns">
+                        <legend><img class="img" src="{{ asset('images/dailyMenu.png') }}" alt="produit"/>&nbsp;{{daily_menu.title}}<br></legend>    
+                        {% for proposition in daily_menu.propositions %}
+                            <b>{{ proposition.title }} :</b>
+                            {{ proposition.product.name|default('-') }}<br>
+                        {% endfor %}
+                        {{daily_menu.price}} CHF<br>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

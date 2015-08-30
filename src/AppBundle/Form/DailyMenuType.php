@@ -20,10 +20,10 @@ class DailyMenuType extends AbstractType
                 ->add('price', 'money', array(
                       'currency' => false
                 ))
-                ->add('date', 'date', array(
+                /*->add('date', 'date', array(
                     'widget' => 'single_text',
-                    'format' => 'dd-MM-yyyy'
-                ))
+                    'format' => 'dd-MM-yyyy',
+                ))*/
                 ->add('enable', 'checkbox', array(
                     'required' => false,
                 ))
