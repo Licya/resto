@@ -1,11 +1,15 @@
 {# src/Admin/DailyMenuBundle/Resources/views/DailyMenu/detail.html.twig#}
 {% extends '::base.html.twig' %}
 {% set itemName = 'Menu du Jour' %}
-{% block pagetitle %}Affichage du détail d'un {{itemName}}{% endblock %}
+{% block pagetitle %}{% endblock %}
 {% block bodyContent %}
-    <h2>Le Menu du Jour: {{title}}</h2>
+    <h2>{{title}}</h2>
+    {% for proposition in daily_menu.propositions %}
+        <b>{{ proposition.title }} :</b>
+        {{ proposition.product.name|default('-') }}<br>
+    {% endfor %}
     <b>Prix: </b>{{price}}<br>
-    <b>Date: </b><em>{{date|date("d/M/y")}}</em><br>
+    {#<b>Date: </b><em>{{date|date("d/M/y")}}</em><br>#}
     <b>Publié: </b>
     {%if enable == 1%}
         oui

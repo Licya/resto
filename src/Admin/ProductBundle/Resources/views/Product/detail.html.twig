@@ -1,9 +1,9 @@
 {# src/Admin/ProductBundle/Resources/views/Product/detail.html.twig#}
 {% extends '::base.html.twig' %}
 {% set itemName = 'Produit' %}
-{% block pagetitle %}Affichage du détail d'un {{itemName}}{% endblock %}
+{% block pagetitle %}{% endblock %}
 {% block bodyContent %}
-    <h2>Le Produit: {{name}}</h2>
+    <h2>{{name}}</h2>
     <b>Nom: </b>{{name}}<br>
     <b>Description: </b><em>{{description}}</em><br>
     <b>Prix: </b>{{mainPrice}}
