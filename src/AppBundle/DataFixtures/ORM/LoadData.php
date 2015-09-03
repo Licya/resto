@@ -73,7 +73,7 @@ class LoadData implements FixtureInterface
                 
                 //Product Entity
                 $prod = $this->createProduct();
-                $prod->setProposition($prop);
+                $prod->addProposition($prop);
                 $manager->persist($prod);
             }
         }
