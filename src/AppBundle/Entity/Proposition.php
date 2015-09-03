@@ -37,7 +37,7 @@ class Proposition
     private $dailyMenu;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Product", inversedBy="propositions", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="propositions", cascade={"persist"})
      */
     private $product;
     
